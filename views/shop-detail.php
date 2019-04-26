@@ -26,7 +26,15 @@
         <![endif]-->
 	</head>
 	<body>
-		<?php include ("header.php"); ?>
+		<?php include ("header.php"); 
+			include ("../core/favorisC.php");
+		?>
+		<?php 
+			if(isset($_REQUEST['user'])){
+				$favorisC = new favorisC();
+				$favorisC->ajouterFavoris($_REQUEST['user'],$_REQUEST['id']);
+			}
+			?>
 			<div class="content-container no-padding">
 				<div class="container-full">
 			<div class="heading-container">
@@ -102,7 +110,7 @@
 																<button type="submit" class="button">Add to cart</button>
 															</div>
 														</form>
-														<p><a href="#"><strong>Add to Wishlist</strong></a></p>
+														<p><a href="<?php echo 'shop-detail.php?id='.$produit['id'].'&user=1' ?>"><strong>Add to Wishlist</strong></a></p>
 														<div class="clear"></div>
 														<div class="product_meta">
 															<span class="posted_in">
@@ -411,7 +419,7 @@
 																					<div class="loop-add-to-wishlist">
 																						<div class="yith-wcwl-add-to-wishlist">
 					                                                                        <div class="yith-wcwl-add-button">
-					                                                                            <a href="#" class="add_to_wishlist">
+					                                                                            <a href="<?php echo 'shop-detail.php?id='.$_REQUEST['id'].'&user=1' ?> class="add_to_wishlist">
 					                                                                                Add to Wishlist
 					                                                                            </a>
 					                                                                        </div>

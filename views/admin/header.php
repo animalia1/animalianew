@@ -388,7 +388,7 @@
 						<a href="javascript:void(0);" data-toggle="collapse" data-target="#livraison_dr"><div class="pull-left"><i class="icon-paper-plane  mr-20"></i><span class="right-nav-text">Gestion Livraison</span></div><div class="pull-right"><i class="ti-angle-down"></i></div><div class="clearfix"></div></a>
 						<ul id="livraison_dr" class="collapse collapse-level-1">
 							<li>
-								<a href="livraison.html">List des livraisons</a>
+								<a href="livraison.php">List des livraisons</a>
 							</li>
 							<li>
 								<a href="contact-card.php">Livreurs</a>

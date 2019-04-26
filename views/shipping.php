@@ -96,10 +96,10 @@
                     <input id="emailAddress" type="text" name="email_address" class="form-control required" value="" onblur="verifMail(this)"/>
                     <p style="color:red;" id="emailAlert"></p>
                 </div>
-				<input type="text" name="prix"  id="prixLivraison2" />
-					<input type="text" name="date" id="date"  value="" />
+				<input type="hidden" name="prix"  id="prixLivraison2" />
+					<input type="hidden" name="date" id="test"  value="" />
                 <div class="form-group">
-                    <label class="control-label mb-10" >Prix de livraison:</label>
+                    <label class="control-label mb-10" ></label>
                     <label class="control-label mb-10" id="prixLivraison"  style="color:green;" value=""></label>
 					
 					<input type="hidden" name="orderid"  value="2" />

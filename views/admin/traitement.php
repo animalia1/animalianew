@@ -35,4 +35,6 @@
         }
     }
 
+    header ("location: $url");
+
 ?>
