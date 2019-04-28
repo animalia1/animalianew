@@ -131,17 +131,8 @@ try{
         }
 		
 	}
-	function recupererEmploye($cin){
-		$sql="SELECT * from employe where cin=$cin";
-		$db = config::getConnexion();
-		try{
-		$liste=$db->query($sql);
-		return $liste;
-		}
-        catch (Exception $e){
-            die('Erreur: '.$e->getMessage());
-        }
-	}
+
+
 	
 	function rechercherListeEmployes($tarif){
 		$sql="SELECT * from employe where tarifHoraire=$tarif";

@@ -33,12 +33,14 @@
 	<body onload="script();">
 		<?php
 			include ('header.php');
+			include ('selectLivreur.php');
+			$livreurid= selectlivreur();
 		?>
 		
 
                         <!--shipping rami work-->
 						<div class="content-container mt-0">
-				<div class="container">
+				<div class="container ">
 					<div class="row mt-0">                
 <h3><span class="number"><i class="icon-bag txt-black mr-10"></i></span><span class="head-font capitalize-font">shipping</span></h3>
 <fieldset>
@@ -99,15 +101,19 @@
 				<input type="hidden" name="prix"  id="prixLivraison2" />
 					<input type="hidden" name="date" id="test"  value="" />
                 <div class="form-group">
-                    <label class="control-label mb-10" ></label>
+					<label class="control-label mb-10" ></label>
+					<label class="control-label mb-10" for="calcul">prix livraison (choisir votre position sur la map) : </label>
+
                     <label class="control-label mb-10" id="prixLivraison"  style="color:green;" value=""></label>
 					
 					<input type="hidden" name="orderid"  value="2" />
-					<input type="hidden" name="livreur"  value="57" />
+					<input type="hidden" name="livreurid"  value="<?php echo $livreurid['id']; ?>" />
+					
+					<input type="hidden" name="livreurdispo"  value="<?php echo $livreurid['dispo']; ?>" />
 
                 </div>
 
-
+				<label class="control-label mb-10" for="calcul"><?php $message=calcul($livreurid['dispo']); echo $message; ?></label>
                 <div class="form-group mb-0 mt-30">
                         <input type="submit"  class="btn btn-default " id="submitButton" onclick="submit()" >
                     

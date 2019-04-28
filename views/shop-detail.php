@@ -110,7 +110,7 @@
 																<button type="submit" class="button">Add to cart</button>
 															</div>
 														</form>
-														<p><a href="<?php echo 'shop-detail.php?id='.$produit['id'].'&user=1' ?>"><strong>Add to Wishlist</strong></a></p>
+														<p><a href="<?php if(!(isset($_SESSION['username']))){echo 'shop-detail.php?wishlist=error';} else {echo 'shop-detail.php?id='.$_REQUEST['id'].'&user='.$_SESSION['id'];}?>"><strong>Add to Wishlist</strong></a></p>
 														<div class="clear"></div>
 														<div class="product_meta">
 															<span class="posted_in">
@@ -419,7 +419,7 @@
 																					<div class="loop-add-to-wishlist">
 																						<div class="yith-wcwl-add-to-wishlist">
 					                                                                        <div class="yith-wcwl-add-button">
-					                                                                            <a href="<?php echo 'shop-detail.php?id='.$_REQUEST['id'].'&user=1' ?> class="add_to_wishlist">
+					                                                                            <a href="<?php if(!(isset($_SESSION['username']))){echo 'shop-detail.php?wishlist=error';} else {echo 'shop-detail.php?id='.$_REQUEST['id'].'&aa='.$_SESSION['id'];}?>" class="add_to_wishlist">
 					                                                                                Add to Wishlist
 					                                                                            </a>
 					                                                                        </div>

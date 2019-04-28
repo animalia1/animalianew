@@ -28,7 +28,8 @@
         <![endif]-->
 	</head>
 	<body>
-		<?php include ("header.php"); ?>
+		<?php include ("header.php"); 
+		?>
 			<div class="content-container no-padding"style="z-index: 1;">
 				<div class="container-full">
 					<div class="main-content">
@@ -140,22 +141,28 @@
 								<div class="col-sm-12">
 									<div class="caroufredsel product-slider nav-position-center" data-height="variable" data-visible-min="1" data-responsive="1" data-infinite="1" data-autoplay="0">
 										<div class="product-slider-title">
-											<h3 class="el-heading">New Arrivals</h3>
+											<h3 class="el-heading">nouveaute</h3>
 										</div>
 										<div class="caroufredsel-wrap">
 											<div class="commerce columns-4">
 												<ul class="products columns-4" data-columns="4">
+													<?php 
+													
+													$produit1C=new produitC();
+														$listeproduit=$produit1C->afficherProduit();
+														foreach($listeproduit as $row){ 
+													?>
 													<li class="product product-no-border style-2">
 														<div class="product-container">
 															<figure>
 																<div class="product-wrap">
 																	<div class="product-images">
-																		<span class="onsale">Sale!</span>
+																		<span class="onsale">NEW!</span>
 																		<div class="shop-loop-thumbnail shop-loop-front-thumbnail">
-																			<a href="shop-detail-1.html"><img width="328" height="328" src="images/products/brit.png" alt=""/></a>
+																			<a href="<?php echo 'shop-detail.php?id='.$row['id'];?>"><img width="328" height="328" src="<?php echo 'admin/'.$row['image'];?>" alt=""/></a>
 																		</div>
 																		<div class="shop-loop-thumbnail shop-loop-back-thumbnail">
-																			<a href="shop-detail-1.html"><img width="450" height="450" src="images/products/brit.png" alt=""/></a>
+																			<a href="shop-detail-1.html"><img width="450" height="450" src="<?php echo 'admin/'.$row['image'];?>" alt=""/></a>
 																		</div>
 																	</div>
 																</div>
@@ -177,11 +184,11 @@
 																		</div>
 																		<div class="info-content-wrap">
 																			<h3 class="product_title">
-																				<a href="shop-detail-1.html">Premium Brit</a>
+																				<a href="shop-detail-1.html"><?php echo $row['nom'];?></a>
 																			</h3>
 																			<div class="info-price">
 																				<span class="price">
-																					<del><span class="amount">£20.50</span></del> <ins><span class="amount">£19.00</span></ins>
+																					<ins><span class="amount"><?php echo $row['price'].' dt';?></span></ins>
 																				</span>
 																			</div>
 																			<div class="loop-action">
@@ -197,571 +204,7 @@
 															</figure>
 														</div>
 													</li>
-													<li class="product product-no-border style-2">
-														<div class="product-container">
-															<figure>
-																<div class="product-wrap">
-																	<div class="product-images">
-																		<div class="shop-loop-thumbnail shop-loop-front-thumbnail   ">
-																			<a href="shop-detail-1.html"><img width="450" height="450" style="padding-top: 40px;"  src="images/products/panier.png" alt=""/></a>
-																		</div>
-																		<div class="shop-loop-thumbnail shop-loop-back-thumbnail">
-																			<a href="shop-detail-1.html"><img width="450" height="450" style="padding-top: 40px;" src="images/products/panier.png" alt=""/></a>
-																		</div>
-																	</div>
-																</div>
-																<figcaption>
-																	<div class="shop-loop-product-info">
-																		<div class="info-meta clearfix">
-																			<div class="star-rating">
-																				<span style="width:0%"></span>
-																			</div>
-																			<div class="loop-add-to-wishlist">
-																				<div class="yith-wcwl-add-to-wishlist">
-			                                                                        <div class="yith-wcwl-add-button">
-			                                                                            <a href="#" class="add_to_wishlist">
-			                                                                                Add to Wishlist
-			                                                                            </a>
-			                                                                        </div>
-			                                                                    </div>
-			                                                                </div>
-																		</div>
-																		<div class="info-content-wrap">
-																			<h3 class="product_title">
-																				<a href="shop-detail-1.html">Cage</a>
-																			</h3>
-																			<div class="info-price">
-																				<span class="price">
-																					<span class="amount">&pound;10.95</span>
-																				</span>
-																			</div>
-																			<div class="loop-action">
-																				<div class="loop-add-to-cart">
-																					<a href="#" class="add_to_cart_button">
-																						Add to cart
-																					</a>
-																				</div>
-																			</div>
-																		</div>
-																	</div>
-																</figcaption>
-															</figure>
-														</div>
-													</li>
-													<li class="product product-no-border style-2">
-														<div class="product-container">
-															<figure>
-																<div class="product-wrap">
-																	<div class="product-images">
-																		<div class="shop-loop-thumbnail shop-loop-front-thumbnail">
-																			<a href="shop-detail-1.html"><img width="450" height="450" src="images/products/schesir.png" alt=""/></a>
-																		</div>
-																		<div class="shop-loop-thumbnail shop-loop-back-thumbnail">
-																			<a href="shop-detail-1.html"><img width="450" height="450" src="images/products/schesir.png" alt=""/></a>
-																		</div>
-																	</div>
-																</div>
-																<figcaption>
-																	<div class="shop-loop-product-info">
-																		<div class="info-meta clearfix">
-																			<div class="star-rating">
-																				<span style="width:0%"></span>
-																			</div>
-																			<div class="loop-add-to-wishlist">
-																				<div class="yith-wcwl-add-to-wishlist">
-			                                                                        <div class="yith-wcwl-add-button">
-			                                                                            <a href="#" class="add_to_wishlist">
-			                                                                                Add to Wishlist
-			                                                                            </a>
-			                                                                        </div>
-			                                                                    </div>
-			                                                                </div>
-																		</div>
-																		<div class="info-content-wrap">
-																			<h3 class="product_title">
-																				<a href="shop-detail-1.html">schesir</a>
-																			</h3>
-																			<div class="info-price">
-																				<span class="price">
-																					<span class="amount">&pound;17.50</span>
-																				</span>
-																			</div>
-																			<div class="loop-action">
-																				<div class="loop-add-to-cart">
-																					<a href="#" class="add_to_cart_button">
-																						Add to cart
-																					</a>
-																				</div>
-																			</div>
-																		</div>
-																	</div>
-																</figcaption>
-															</figure>
-														</div>
-													</li>
-													<li class="product product-no-border style-2">
-														<div class="product-container">
-															<figure>
-																<div class="product-wrap">
-																	<div class="product-images">
-																		<div class="shop-loop-thumbnail shop-loop-front-thumbnail">
-																			<a href="shop-detail-1.html"><img width="450" height="450" style="padding-top:50px;" src="images/products/bac.png" alt=""/></a>
-																		</div>
-																		<div class="shop-loop-thumbnail shop-loop-back-thumbnail">
-																			<a href="shop-detail-1.html"><img width="450" height="450" style="padding-top:50px;" src="images/products/bac.png" alt=""/></a>
-																		</div>
-																	</div>
-																</div>
-																<figcaption>
-																	<div class="shop-loop-product-info">
-																		<div class="info-meta clearfix">
-																			<div class="star-rating">
-																				<span style="width:0%"></span>
-																			</div>
-																			<div class="loop-add-to-wishlist">
-																				<div class="yith-wcwl-add-to-wishlist">
-			                                                                        <div class="yith-wcwl-add-button">
-			                                                                            <a href="#" class="add_to_wishlist">
-			                                                                                Add to Wishlist
-			                                                                            </a>
-			                                                                        </div>
-			                                                                    </div>
-			                                                                </div>
-																		</div>
-																		<div class="info-content-wrap">
-																			<h3 class="product_title">
-																				<a href="shop-detail-1.html">Bac et Letiere</a>
-																			</h3>
-																			<div class="info-price">
-																				<span class="price">
-																					<span class="amount">&pound;17.75</span>
-																				</span>
-																			</div>
-																			<div class="loop-action">
-																				<div class="loop-add-to-cart">
-																					<a href="#" class="add_to_cart_button">
-																						Add to cart
-																					</a>
-																				</div>
-																			</div>
-																		</div>
-																	</div>
-																</figcaption>
-															</figure>
-														</div>
-													</li>
-													<li class="product product-no-border style-2">
-														<div class="product-container">
-															<figure>
-																<div class="product-wrap">
-																	<div class="product-images">
-																		<div class="shop-loop-thumbnail shop-loop-front-thumbnail">
-																			<a href="shop-detail-1.html"><img width="450" height="450" src="images/products/product_328x328.jpg" alt=""/></a>
-																		</div>
-																		<div class="shop-loop-thumbnail shop-loop-back-thumbnail">
-																			<a href="shop-detail-1.html"><img width="450" height="450" src="images/products/product_328x328alt.jpg" alt=""/></a>
-																		</div>
-																	</div>
-																</div>
-																<figcaption>
-																	<div class="shop-loop-product-info">
-																		<div class="info-meta clearfix">
-																			<div class="star-rating">
-																				<span style="width:0%"></span>
-																			</div>
-																			<div class="loop-add-to-wishlist">
-																				<div class="yith-wcwl-add-to-wishlist">
-			                                                                        <div class="yith-wcwl-add-button">
-			                                                                            <a href="#" class="add_to_wishlist">
-			                                                                                Add to Wishlist
-			                                                                            </a>
-			                                                                        </div>
-			                                                                    </div>
-			                                                                </div>
-																		</div>
-																		<div class="info-content-wrap">
-																			<h3 class="product_title">
-																				<a href="shop-detail-1.html">Shure Microphone</a>
-																			</h3>
-																			<div class="info-price">
-																				<span class="price">
-																					<span class="amount">&pound;10.75</span>
-																				</span>
-																			</div>
-																			<div class="loop-action">
-																				<div class="loop-add-to-cart">
-																					<a href="#" class="add_to_cart_button">
-																						Add to cart
-																					</a>
-																				</div>
-																			</div>
-																		</div>
-																	</div>
-																</figcaption>
-															</figure>
-														</div>
-													</li>
-													<li class="product product-no-border style-2">
-														<div class="product-container">
-															<figure>
-																<div class="product-wrap">
-																	<div class="product-images">
-																		<span class="onsale">Sale!</span>
-																		<div class="shop-loop-thumbnail shop-loop-front-thumbnail">
-																			<a href="shop-detail-1.html"><img width="450" height="450" src="images/products/product_328x328.jpg" alt=""/></a>
-																		</div>
-																		<div class="shop-loop-thumbnail shop-loop-back-thumbnail">
-																			<a href="shop-detail-1.html"><img width="450" height="450" src="images/products/product_328x328alt.jpg" alt=""/></a>
-																		</div>
-																	</div>
-																</div>
-																<figcaption>
-																	<div class="shop-loop-product-info">
-																		<div class="info-meta clearfix">
-																			<div class="star-rating">
-																				<span style="width:80%"></span>
-																			</div>
-																			<div class="loop-add-to-wishlist">
-																				<div class="yith-wcwl-add-to-wishlist">
-			                                                                        <div class="yith-wcwl-add-button">
-			                                                                            <a href="#" class="add_to_wishlist">
-			                                                                                Add to Wishlist
-			                                                                            </a>
-			                                                                        </div>
-			                                                                    </div>
-			                                                                </div>
-																		</div>
-																		<div class="info-content-wrap">
-																			<h3 class="product_title">
-																				<a href="shop-detail-1.html">Beats Studio</a>
-																			</h3>
-																			<div class="info-price">
-																				<span class="price">
-																					<del><span class="amount">£20.50</span></del> 
-																					<ins><span class="amount">£19.00</span></ins>
-																				</span>
-																			</div>
-																			<div class="loop-action">
-																				<div class="loop-add-to-cart">
-																					<a href="#" class="add_to_cart_button">
-																						Add to cart
-																					</a>
-																				</div>
-																			</div>
-																		</div>
-																	</div>
-																</figcaption>
-															</figure>
-														</div>
-													</li>
-													<li class="product product-no-border style-2">
-														<div class="product-container">
-															<figure>
-																<div class="product-wrap">
-																	<div class="product-images">
-																		<div class="shop-loop-thumbnail shop-loop-front-thumbnail">
-																			<a href="shop-detail-1.html"><img width="450" height="450" src="images/products/product_328x328.jpg" alt=""/></a>
-																		</div>
-																		<div class="shop-loop-thumbnail shop-loop-back-thumbnail">
-																			<a href="shop-detail-1.html"><img width="450" height="450" src="images/products/product_328x328alt.jpg" alt=""/></a>
-																		</div>
-																	</div>
-																</div>
-																<figcaption>
-																	<div class="shop-loop-product-info">
-																		<div class="info-meta clearfix">
-																			<div class="star-rating">
-																				<span style="width:0%"></span>
-																			</div>
-																			<div class="loop-add-to-wishlist">
-																				<div class="yith-wcwl-add-to-wishlist">
-			                                                                        <div class="yith-wcwl-add-button">
-			                                                                            <a href="#" class="add_to_wishlist">
-			                                                                                Add to Wishlist
-			                                                                            </a>
-			                                                                        </div>
-			                                                                    </div>
-			                                                                </div>
-																		</div>
-																		<div class="info-content-wrap">
-																			<h3 class="product_title">
-																				<a href="shop-detail-1.html">Urbeats</a>
-																			</h3>
-																			<div class="info-price">
-																				<span class="price">
-																					<span class="amount">£12.00</span>
-																					–
-																					<span class="amount">£20.00</span>
-																				</span>
-																			</div>
-																			<div class="loop-action">
-																				<div class="loop-add-to-cart">
-																					<a href="#" class="add_to_cart_button">
-																						Add to cart
-																					</a>
-																				</div>
-																			</div>
-																		</div>
-																	</div>
-																</figcaption>
-															</figure>
-														</div>
-													</li>
-													<li class="product product-no-border style-2">
-														<div class="product-container">
-															<figure>
-																<div class="product-wrap">
-																	<div class="product-images">
-																		<div class="shop-loop-thumbnail shop-loop-front-thumbnail">
-																			<a href="shop-detail-1.html"><img width="450" height="450" src="images/products/product_328x328.jpg" alt=""/></a>
-																		</div>
-																		<div class="shop-loop-thumbnail shop-loop-back-thumbnail">
-																			<a href="shop-detail-1.html"><img width="450" height="450" src="images/products/product_328x328alt.jpg" alt=""/></a>
-																		</div>
-																	</div>
-																</div>
-																<figcaption>
-																	<div class="shop-loop-product-info">
-																		<div class="info-meta clearfix">
-																			<div class="star-rating">
-																				<span style="width:0%"></span>
-																			</div>
-																			<div class="loop-add-to-wishlist">
-																				<div class="yith-wcwl-add-to-wishlist">
-			                                                                        <div class="yith-wcwl-add-button">
-			                                                                            <a href="#" class="add_to_wishlist">
-			                                                                                Add to Wishlist
-			                                                                            </a>
-			                                                                        </div>
-			                                                                    </div>
-			                                                                </div>
-																		</div>
-																		<div class="info-content-wrap">
-																			<h3 class="product_title">
-																				<a href="shop-detail-1.html">Magic Mouse</a>
-																			</h3>
-																			<div class="info-price">
-																				<span class="price">
-																					<span class="amount">&pound;32.00</span>
-																				</span>
-																			</div>
-																			<div class="loop-action">
-																				<div class="loop-add-to-cart">
-																					<a href="#" class="add_to_cart_button">
-																						Add to cart
-																					</a>
-																				</div>
-																			</div>
-																		</div>
-																	</div>
-																</figcaption>
-															</figure>
-														</div>
-													</li>
-													<li class="product product-no-border style-2">
-														<div class="product-container">
-															<figure>
-																<div class="product-wrap">
-																	<div class="product-images">
-																		<div class="shop-loop-thumbnail shop-loop-front-thumbnail">
-																			<a href="shop-detail-1.html"><img width="450" height="450" src="images/products/product_328x328.jpg" alt=""/></a>
-																		</div>
-																		<div class="shop-loop-thumbnail shop-loop-back-thumbnail">
-																			<a href="shop-detail-1.html"><img width="450" height="450" src="images/products/product_328x328alt.jpg" alt=""/></a>
-																		</div>
-																	</div>
-																</div>
-																<figcaption>
-																	<div class="shop-loop-product-info">
-																		<div class="info-meta clearfix">
-																			<div class="star-rating">
-																				<span style="width:0%"></span>
-																			</div>
-																			<div class="loop-add-to-wishlist">
-																				<div class="yith-wcwl-add-to-wishlist">
-			                                                                        <div class="yith-wcwl-add-button">
-			                                                                            <a href="#" class="add_to_wishlist">
-			                                                                                Add to Wishlist
-			                                                                            </a>
-			                                                                        </div>
-			                                                                    </div>
-			                                                                </div>
-																		</div>
-																		<div class="info-content-wrap">
-																			<h3 class="product_title">
-																				<a href="shop-detail-1.html">Hans Wegner Shell Chair</a>
-																			</h3>
-																			<div class="info-price">
-																				<span class="price">
-																					<span class="amount">&pound;10.75</span>
-																				</span>
-																			</div>
-																			<div class="loop-action">
-																				<div class="loop-add-to-cart">
-																					<a href="#" class="add_to_cart_button">
-																						Add to cart
-																					</a>
-																				</div>
-																			</div>
-																		</div>
-																	</div>
-																</figcaption>
-															</figure>
-														</div>
-													</li>
-													<li class="product product-no-border style-2">
-														<div class="product-container">
-															<figure>
-																<div class="product-wrap">
-																	<div class="product-images">
-																		<div class="shop-loop-thumbnail shop-loop-front-thumbnail">
-																			<a href="shop-detail-1.html"><img width="450" height="450" src="images/products/product_328x328.jpg" alt=""/></a>
-																		</div>
-																		<div class="shop-loop-thumbnail shop-loop-back-thumbnail">
-																			<a href="shop-detail-1.html"><img width="450" height="450" src="images/products/product_328x328alt.jpg" alt=""/></a>
-																		</div>
-																	</div>
-																</div>
-																<figcaption>
-																	<div class="shop-loop-product-info">
-																		<div class="info-meta clearfix">
-																			<div class="star-rating">
-																				<span style="width:0%"></span>
-																			</div>
-																			<div class="loop-add-to-wishlist">
-																				<div class="yith-wcwl-add-to-wishlist">
-			                                                                        <div class="yith-wcwl-add-button">
-			                                                                            <a href="#" class="add_to_wishlist">
-			                                                                                Add to Wishlist
-			                                                                            </a>
-			                                                                        </div>
-			                                                                    </div>
-			                                                                </div>
-																		</div>
-																		<div class="info-content-wrap">
-																			<h3 class="product_title">
-																				<a href="shop-detail-1.html">Jens Risom Lounge</a>
-																			</h3>
-																			<div class="info-price">
-																				<span class="price">
-																					<span class="amount">&pound;17.45</span>
-																				</span>
-																			</div>
-																			<div class="loop-action">
-																				<div class="loop-add-to-cart">
-																					<a href="#" class="add_to_cart_button">
-																						Add to cart
-																					</a>
-																				</div>
-																			</div>
-																		</div>
-																	</div>
-																</figcaption>
-															</figure>
-														</div>
-													</li>
-													<li class="product product-no-border style-2">
-														<div class="product-container">
-															<figure>
-																<div class="product-wrap">
-																	<div class="product-images">
-																		<div class="shop-loop-thumbnail shop-loop-front-thumbnail">
-																			<a href="shop-detail-1.html"><img width="450" height="450" src="images/products/product_328x328.jpg" alt=""/></a>
-																		</div>
-																		<div class="shop-loop-thumbnail shop-loop-back-thumbnail">
-																			<a href="shop-detail-1.html"><img width="450" height="450" src="images/products/product_328x328alt.jpg" alt=""/></a>
-																		</div>
-																	</div>
-																</div>
-																<figcaption>
-																	<div class="shop-loop-product-info">
-																		<div class="info-meta clearfix">
-																			<div class="star-rating">
-																				<span style="width:0%"></span>
-																			</div>
-																			<div class="loop-add-to-wishlist">
-																				<div class="yith-wcwl-add-to-wishlist">
-			                                                                        <div class="yith-wcwl-add-button">
-			                                                                            <a href="#" class="add_to_wishlist">
-			                                                                                Add to Wishlist
-			                                                                            </a>
-			                                                                        </div>
-			                                                                    </div>
-			                                                                </div>
-																		</div>
-																		<div class="info-content-wrap">
-																			<h3 class="product_title">
-																				<a href="shop-detail-1.html">Eero Saarinen Oval Dining</a>
-																			</h3>
-																			<div class="info-price">
-																				<span class="price">
-																					<span class="amount">&pound;15.05</span>
-																				</span>
-																			</div>
-																			<div class="loop-action">
-																				<div class="loop-add-to-cart">
-																					<a href="#" class="add_to_cart_button">
-																						Add to cart
-																					</a>
-																				</div>
-																			</div>
-																		</div>
-																	</div>
-																</figcaption>
-															</figure>
-														</div>
-													</li>
-													<li class="product product-no-border style-2">
-														<div class="product-container">
-															<figure>
-																<div class="product-wrap">
-																	<div class="product-images">
-																		<div class="shop-loop-thumbnail shop-loop-front-thumbnail">
-																			<a href="shop-detail-1.html"><img width="450" height="450" src="images/products/product_328x328.jpg" alt=""/></a>
-																		</div>
-																		<div class="shop-loop-thumbnail shop-loop-back-thumbnail">
-																			<a href="shop-detail-1.html"><img width="450" height="450" src="images/products/product_328x328alt.jpg" alt=""/></a>
-																		</div>
-																	</div>
-																</div>
-																<figcaption>
-																	<div class="shop-loop-product-info">
-																		<div class="info-meta clearfix">
-																			<div class="star-rating">
-																				<span style="width:0%"></span>
-																			</div>
-																			<div class="loop-add-to-wishlist">
-																				<div class="yith-wcwl-add-to-wishlist">
-			                                                                        <div class="yith-wcwl-add-button">
-			                                                                            <a href="#" class="add_to_wishlist">
-			                                                                                Add to Wishlist
-			                                                                            </a>
-			                                                                        </div>
-			                                                                    </div>
-			                                                                </div>
-																		</div>
-																		<div class="info-content-wrap">
-																			<h3 class="product_title">
-																				<a href="shop-detail-1.html">Warren Platner Dining</a>
-																			</h3>
-																			<div class="info-price">
-																				<span class="price">
-																					<span class="amount">&pound;10.95</span>
-																				</span>
-																			</div>
-																			<div class="loop-action">
-																				<div class="loop-add-to-cart">
-																					<a href="#" class="add_to_cart_button">
-																						Add to cart
-																					</a>
-																				</div>
-																			</div>
-																		</div>
-																	</div>
-																</figcaption>
-															</figure>
-														</div>
-													</li>
+		<?php } ?>
 												</ul>
 											</div>
 											<a href="#" class="caroufredsel-prev"></a>
@@ -849,484 +292,6 @@
 								</div>
 							</div>
 						</div>
-						
-						<div class="container">
-							<div class="row row-fluid mt-2">
-								<div class="col-sm-12">
-									<div data-layout="masonry" data-masonry-column="4" class="commerce products-masonry masonry">
-										<div class="masonry-filter">
-											<div class="filter-action filter-action-center">
-												<ul data-filter-key="filter">
-													<li>
-														<a data-masonry-toogle="selected" href="#" data-filter-value=".maecenas">Maecenas</a>
-													</li>
-													<li>
-														<a href="#" data-filter-value=".nulla">Aliquam</a>
-													</li>
-													<li>
-														<a href="#" data-filter-value=".donec">Donec</a>
-													</li>
-												</ul>
-											</div>
-										</div>
-										<div class="products-masonry-wrap">
-											<ul class="products masonry-products row masonry-wrap">
-												<li class="product masonry-item product-no-border style-2 col-md-3 col-sm-6 maecenas donec">
-													<div class="product-container">
-														<figure>
-															<div class="product-wrap">
-																<div class="product-images">
-																	<div class="shop-loop-thumbnail shop-loop-front-thumbnail">
-																		<a href="shop-detail-1.html"><img width="450" height="450" src="images/products/panier.png" alt=""/></a>
-																	</div>
-																	<div class="shop-loop-thumbnail shop-loop-back-thumbnail">
-																		<a href="shop-detail-1.html"><img width="450" height="450" src="images/products/panier.png" alt=""/></a>
-																	</div>
-																</div>
-															</div>
-															<figcaption>
-																<div class="shop-loop-product-info">
-																	<div class="info-meta clearfix">
-																		<div class="star-rating">
-																			<span style="width:0%"></span>
-																		</div>
-																		<div class="loop-add-to-wishlist">
-																			<div class="yith-wcwl-add-to-wishlist">
-		                                                                        <div class="yith-wcwl-add-button">
-		                                                                            <a href="#" class="add_to_wishlist">
-		                                                                                Add to Wishlist
-		                                                                            </a>
-		                                                                        </div>
-		                                                                    </div>
-		                                                                </div>
-																	</div>
-																	<div class="info-content-wrap">
-																		<h3 class="product_title">
-																			<a href="shop-detail-1.html">Schultz Petal Dining</a>
-																		</h3>
-																		<div class="info-price">
-																			<span class="price">
-																				<span class="amount">&pound;17.45</span>
-																			</span>
-																		</div>
-																		<div class="loop-action">
-																			<div class="loop-add-to-cart">
-																				<a href="#" class="add_to_cart_button">
-																					Add to cart
-																				</a>
-																			</div>
-																		</div>
-																	</div>
-																</div>
-															</figcaption>
-														</figure>
-													</div>
-												</li>
-												<li class="product masonry-item product-no-border style-2 col-md-3 col-sm-6 nulla maecenas">
-													<div class="product-container">
-														<figure>
-															<div class="product-wrap">
-																<div class="product-images">
-																	<div class="shop-loop-thumbnail shop-loop-front-thumbnail">
-																		<a href="shop-detail-1.html"><img width="450" height="450" src="images/products/product_328x328.jpg" alt=""/></a>
-																	</div>
-																	<div class="shop-loop-thumbnail shop-loop-back-thumbnail">
-																		<a href="shop-detail-1.html"><img width="450" height="450" src="images/products/product_328x328alt.jpg" alt=""/></a>
-																	</div>
-																</div>
-															</div>
-															<figcaption>
-																<div class="shop-loop-product-info">
-																	<div class="info-meta clearfix">
-																		<div class="star-rating">
-																			<span style="width:0%"></span>
-																		</div>
-																		<div class="loop-add-to-wishlist">
-																			<div class="yith-wcwl-add-to-wishlist">
-		                                                                        <div class="yith-wcwl-add-button">
-		                                                                            <a href="#" class="add_to_wishlist">
-		                                                                                Add to Wishlist
-		                                                                            </a>
-		                                                                        </div>
-		                                                                    </div>
-		                                                                </div>
-																	</div>
-																	<div class="info-content-wrap">
-																		<h3 class="product_title">
-																			<a href="shop-detail-1.html">Jens Risom Lounge</a>
-																		</h3>
-																		<div class="info-price">
-																			<span class="price">
-																				<span class="amount">&pound;17.45</span>
-																			</span>
-																		</div>
-																		<div class="loop-action">
-																			<div class="loop-add-to-cart">
-																				<a href="#" class="add_to_cart_button">
-																					Add to cart
-																				</a>
-																			</div>
-																		</div>
-																	</div>
-																</div>
-															</figcaption>
-														</figure>
-													</div>
-												</li>
-												<li class="product masonry-item product-no-border style-2 col-md-3 col-sm-6 nulla maecenas">
-													<div class="product-container">
-														<figure>
-															<div class="product-wrap">
-																<div class="product-images">
-																	<div class="shop-loop-thumbnail shop-loop-front-thumbnail">
-																		<a href="shop-detail-1.html"><img width="450" height="450" src="images/products/product_328x328.jpg" alt=""/></a>
-																	</div>
-																	<div class="shop-loop-thumbnail shop-loop-back-thumbnail">
-																		<a href="shop-detail-1.html"><img width="450" height="450" src="images/products/product_328x328alt.jpg" alt=""/></a>
-																	</div>
-																</div>
-															</div>
-															<figcaption>
-																<div class="shop-loop-product-info">
-																	<div class="info-meta clearfix">
-																		<div class="star-rating">
-																			<span style="width:0%"></span>
-																		</div>
-																		<div class="loop-add-to-wishlist">
-																			<div class="yith-wcwl-add-to-wishlist">
-		                                                                        <div class="yith-wcwl-add-button">
-		                                                                            <a href="#" class="add_to_wishlist">
-		                                                                                Add to Wishlist
-		                                                                            </a>
-		                                                                        </div>
-		                                                                    </div>
-		                                                                </div>
-																	</div>
-																	<div class="info-content-wrap">
-																		<h3 class="product_title">
-																			<a href="shop-detail-1.html">Hans Wegner Shell Chair</a>
-																		</h3>
-																		<div class="info-price">
-																			<span class="price">
-																				<span class="amount">&pound;10.75</span>
-																			</span>
-																		</div>
-																		<div class="loop-action">
-																			<div class="loop-add-to-cart">
-																				<a href="#" class="add_to_cart_button">
-																					Add to cart
-																				</a>
-																			</div>
-																		</div>
-																	</div>
-																</div>
-															</figcaption>
-														</figure>
-													</div>
-												</li>
-												<li class="product masonry-item product-no-border style-2 col-md-3 col-sm-6 maecenas donec">
-													<div class="product-container">
-														<figure>
-															<div class="product-wrap">
-																<div class="product-images">
-																	<div class="shop-loop-thumbnail shop-loop-front-thumbnail">
-																		<a href="shop-detail-1.html"><img width="450" height="450" src="images/products/product_328x328.jpg" alt=""/></a>
-																	</div>
-																	<div class="shop-loop-thumbnail shop-loop-back-thumbnail">
-																		<a href="shop-detail-1.html"><img width="450" height="450" src="images/products/product_328x328alt.jpg" alt=""/></a>
-																	</div>
-																</div>
-															</div>
-															<figcaption>
-																<div class="shop-loop-product-info">
-																	<div class="info-meta clearfix">
-																		<div class="star-rating">
-																			<span style="width:0%"></span>
-																		</div>
-																		<div class="loop-add-to-wishlist">
-																			<div class="yith-wcwl-add-to-wishlist">
-		                                                                        <div class="yith-wcwl-add-button">
-		                                                                            <a href="#" class="add_to_wishlist">
-		                                                                                Add to Wishlist
-		                                                                            </a>
-		                                                                        </div>
-		                                                                    </div>
-		                                                                </div>
-																	</div>
-																	<div class="info-content-wrap">
-																		<h3 class="product_title">
-																			<a href="shop-detail-1.html">Jaime Hayon Ro Chair</a>
-																		</h3>
-																		<div class="info-price">
-																			<span class="price">
-																				<span class="amount">&pound;32.00</span>
-																			</span>
-																		</div>
-																		<div class="loop-action">
-																			<div class="loop-add-to-cart">
-																				<a href="#" class="add_to_cart_button">
-																					Add to cart
-																				</a>
-																			</div>
-																		</div>
-																	</div>
-																</div>
-															</figcaption>
-														</figure>
-													</div>
-												</li>
-												<li class="product masonry-item product-no-border style-2 col-md-3 col-sm-6 maecenas donec">
-													<div class="product-container">
-														<figure>
-															<div class="product-wrap">
-																<div class="product-images">
-																	<div class="shop-loop-thumbnail shop-loop-front-thumbnail">
-																		<a href="shop-detail-1.html"><img width="450" height="450" src="images/products/product_328x328.jpg" alt=""/></a>
-																	</div>
-																	<div class="shop-loop-thumbnail shop-loop-back-thumbnail">
-																		<a href="shop-detail-1.html"><img width="450" height="450" src="images/products/product_328x328alt.jpg" alt=""/></a>
-																	</div>
-																</div>
-															</div>
-															<figcaption>
-																<div class="shop-loop-product-info">
-																	<div class="info-meta clearfix">
-																		<div class="star-rating">
-																			<span style="width:0%"></span>
-																		</div>
-																		<div class="loop-add-to-wishlist">
-																			<div class="yith-wcwl-add-to-wishlist">
-		                                                                        <div class="yith-wcwl-add-button">
-		                                                                            <a href="#" class="add_to_wishlist">
-		                                                                                Add to Wishlist
-		                                                                            </a>
-		                                                                        </div>
-		                                                                    </div>
-		                                                                </div>
-																	</div>
-																	<div class="info-content-wrap">
-																		<h3 class="product_title">
-																			<a href="shop-detail-1.html">Saarinen Womb Chair</a>
-																		</h3>
-																		<div class="info-price">
-																			<span class="price">
-																				<span class="amount">&pound;123.00</span>
-																			</span>
-																		</div>
-																		<div class="loop-action">
-																			<div class="loop-add-to-cart">
-																				<a href="#" class="add_to_cart_button">
-																					Add to cart
-																				</a>
-																			</div>
-																		</div>
-																	</div>
-																</div>
-															</figcaption>
-														</figure>
-													</div>
-												</li>
-												<li class="product masonry-item product-no-border style-2 col-md-3 col-sm-6 maecenas">
-													<div class="product-container">
-														<figure>
-															<div class="product-wrap">
-																<div class="product-images">
-																	<div class="shop-loop-thumbnail shop-loop-front-thumbnail">
-																		<a href="shop-detail-1.html"><img width="450" height="450" src="images/products/product_328x328.jpg" alt=""/></a>
-																	</div>
-																	<div class="shop-loop-thumbnail shop-loop-back-thumbnail">
-																		<a href="shop-detail-1.html"><img width="450" height="450" src="images/products/product_328x328alt.jpg" alt=""/></a>
-																	</div>
-																</div>
-															</div>
-															<figcaption>
-																<div class="shop-loop-product-info">
-																	<div class="info-meta clearfix">
-																		<div class="star-rating">
-																			<span style="width:80%"></span>
-																		</div>
-																		<div class="loop-add-to-wishlist">
-																			<div class="yith-wcwl-add-to-wishlist">
-		                                                                        <div class="yith-wcwl-add-button">
-		                                                                            <a href="#" class="add_to_wishlist">
-		                                                                                Add to Wishlist
-		                                                                            </a>
-		                                                                        </div>
-		                                                                    </div>
-		                                                                </div>
-																	</div>
-																	<div class="info-content-wrap">
-																		<h3 class="product_title">
-																			<a href="shop-detail-1.html">Citterio Grand Repos</a>
-																		</h3>
-																		<div class="info-price">
-																			<span class="price">
-																				<span class="amount">£12.00</span>
-																				–
-																				<span class="amount">£20.00</span>
-																			</span>
-																		</div>
-																		<div class="loop-action">
-																			<div class="loop-add-to-cart">
-																				<a href="#" class="add_to_cart_button">
-																					Add to cart
-																				</a>
-																			</div>
-																		</div>
-																	</div>
-																</div>
-															</figcaption>
-														</figure>
-													</div>
-												</li>
-												<li class="product masonry-item product-no-border style-2 col-md-3 col-sm-6 nulla maecenas donec">
-													<div class="product-container">
-														<figure>
-															<div class="product-wrap">
-																<div class="product-images">
-																	<span class="onsale">Sale!</span>
-																	<div class="shop-loop-thumbnail shop-loop-front-thumbnail">
-																		<a href="shop-detail-1.html"><img width="450" height="450" src="images/products/product_328x328.jpg" alt=""/></a>
-																	</div>
-																	<div class="shop-loop-thumbnail shop-loop-back-thumbnail">
-																		<a href="shop-detail-1.html"><img width="450" height="450" src="images/products/product_328x328alt.jpg" alt=""/></a>
-																	</div>
-																</div>
-															</div>
-															<figcaption>
-																<div class="shop-loop-product-info">
-																	<div class="info-meta clearfix">
-																		<div class="star-rating">
-																			<span style="width:80%"></span>
-																		</div>
-																		<div class="loop-add-to-wishlist">
-																			<div class="yith-wcwl-add-to-wishlist">
-		                                                                        <div class="yith-wcwl-add-button">
-		                                                                            <a href="#" class="add_to_wishlist">
-		                                                                                Add to Wishlist
-		                                                                            </a>
-		                                                                        </div>
-		                                                                    </div>
-		                                                                </div>
-																	</div>
-																	<div class="info-content-wrap">
-																		<h3 class="product_title">
-																			<a href="shop-detail-1.html">Arne Jacobsen Oxford Chair</a>
-																		</h3>
-																		<div class="info-price">
-																			<span class="price">
-																				<del><span class="amount">£20.50</span></del> 
-																				<ins><span class="amount">£19.00</span></ins>
-																			</span>
-																		</div>
-																		<div class="loop-action">
-																			<div class="loop-add-to-cart">
-																				<a href="#" class="add_to_cart_button">
-																					Add to cart
-																				</a>
-																			</div>
-																		</div>
-																	</div>
-																</div>
-															</figcaption>
-														</figure>
-													</div>
-												</li>
-												<li class="product masonry-item product-no-border style-2 col-md-3 col-sm-6 nulla maecenas">
-													<div class="product-container">
-														<figure>
-															<div class="product-wrap">
-																<div class="product-images">
-																	<span class="onsale">Sale!</span>
-																	<div class="shop-loop-thumbnail shop-loop-front-thumbnail">
-																		<a href="shop-detail-1.html"><img width="450" height="450" src="images/products/product_328x328.jpg" alt=""/></a>
-																	</div>
-																	<div class="shop-loop-thumbnail shop-loop-back-thumbnail">
-																		<a href="shop-detail-1.html"><img width="450" height="450" src="images/products/product_328x328alt.jpg" alt=""/></a>
-																	</div>
-																</div>
-															</div>
-															<figcaption>
-																<div class="shop-loop-product-info">
-																	<div class="info-meta clearfix">
-																		<div class="star-rating">
-																			<span style="width:80%"></span>
-																		</div>
-																		<div class="loop-add-to-wishlist">
-																			<div class="yith-wcwl-add-to-wishlist">
-		                                                                        <div class="yith-wcwl-add-button">
-		                                                                            <a href="#" class="add_to_wishlist">
-		                                                                                Add to Wishlist
-		                                                                            </a>
-		                                                                        </div>
-		                                                                    </div>
-		                                                                </div>
-																	</div>
-																	<div class="info-content-wrap">
-																		<h3 class="product_title">
-																			<a href="shop-detail-1.html">Charles Pollock Executive</a>
-																		</h3>
-																		<div class="info-price">
-																			<span class="price">
-																				<del><span class="amount">£20.50</span></del> 
-																				<ins><span class="amount">£19.00</span></ins>
-																			</span>
-																		</div>
-																		<div class="loop-action">
-																			<div class="loop-add-to-cart">
-																				<a href="#" class="add_to_cart_button">
-																					Add to cart
-																				</a>
-																			</div>
-																		</div>
-																	</div>
-																</div>
-															</figcaption>
-														</figure>
-													</div>
-												</li>
-											</ul>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-						<div class="container">
-							<div class="row row-fluid mb-6">
-								<div class="col-sm-6">
-									<div class="box-ft box-ft-5 black">
-										<img src="images/thumb_570x190.jpg" alt="">
-										<a href="#">
-											<span class="bof-tf-title-wrap">
-												<span class="bof-tf-title-wrap-2">
-													<span class="bof-tf-title">MEGA SALE</span>
-													<span class="bof-tf-sub-title">Smart TV </span>
-												</span>
-											</span>
-										</a>
-									</div>
-								</div>
-								<div class="col-sm-6">
-									<div class="box-ft box-ft-5 black">
-										<img src="images/thumb_570x190.jpg" alt="">
-										<a href="#">
-											<span class="bof-tf-title-wrap">
-												<span class="bof-tf-title-wrap-2">
-													<span class="bof-tf-title">MOBILE MUSIC</span>
-													<span class="bof-tf-sub-title">Feel the real </span>
-												</span>
-											</span>
-										</a>
-									</div>
-								</div>
-							</div>
-						</div>
-						
-						
-						
-					</div>
-				</div>
-			</div>
 			<footer id="footer" class="footer">
 				<div class="footer-newsletter">
 					<div class="container">
@@ -1463,10 +428,14 @@
 			</footer>
 		</div>
 
+
+		<?php 
+
+		if(!($_SESSION['username'])){ ?>
 		<div class="modal fade user-login-modal" id="userloginModal" tabindex="-1" role="dialog" aria-hidden="true">
 			<div class="modal-dialog">
 				<div class="modal-content">
-					<form id="userloginModalForm">
+					<form id="userloginModalForm"  methode="get" action="login.php">
 						<div class="modal-header">
 							<button type="button" class="close" data-dismiss="modal">
 								<span aria-hidden="true">&times;</span><span class="sr-only">Close</span>
@@ -1482,11 +451,11 @@
 							<div class="user-login-or"><span>or</span></div>
 							<div class="form-group">
 								<label>Username</label>
-								<input type="text" id="username" name="log" required class="form-control" value="" placeholder="Username">
+								<input type="text" id="username" name="username" required class="form-control" value="" placeholder="Username">
 							</div>
 							<div class="form-group">
 								<label for="password">Password</label>
-								<input type="password" id="password" required value="" name="pwd" class="form-control" placeholder="Password">
+								<input type="password" id="password" required value="" name="password" class="form-control" placeholder="Password">
 							</div>
 							<div class="checkbox clearfix">
 								<label class="form-flat-checkbox pull-left">
@@ -1511,7 +480,7 @@
 		<div class="modal fade user-register-modal" id="userregisterModal" tabindex="-1" role="dialog" aria-hidden="true">
 			<div class="modal-dialog">
 				<div class="modal-content">
-					<form id="userregisterModalForm">
+					<form id="userregisterModalForm" methode="get" action="register.php" >
 						<div class="modal-header">
 							<button type="button" class="close" data-dismiss="modal">
 								<span aria-hidden="true">&times;</span><span class="sr-only">Close</span>
@@ -1527,19 +496,19 @@
 							<div class="user-login-or"><span>or</span></div>
 							<div class="form-group">
 								<label>Username</label>
-								<input type="text" name="user_login" required class="form-control" value="" placeholder="Username">
+								<input type="text" name="username" required class="form-control" value="" placeholder="Username">
 							</div>
 							<div class="form-group">
 								<label for="user_email">Email</label>
-								<input type="email" id="user_email" name="user_email" required class="form-control" value="" placeholder="Email">
+								<input type="email" id="email" name="email" required class="form-control" value="" placeholder="Email">
 							</div>
 							<div class="form-group">
 								<label for="user_password">Password</label>
-								<input type="password" id="user_password" required value="" name="user_password" class="form-control" placeholder="Password">
+								<input type="password" id="password1" required value="" name="password1" class="form-control" placeholder="Password">
 							</div>
 							<div class="form-group">
 								<label for="user_password">Retype password</label>
-								<input type="password" id="cuser_password" required value="" name="cuser_password" class="form-control" placeholder="Retype password">
+								<input type="password" id="password2" required value="" name="password2" class="form-control" placeholder="Retype password">
 							</div>
 						</div>
 						<div class="modal-footer">
@@ -1578,6 +547,7 @@
 				</div>
 			</div>
 		</div>
+		<?php } ?>
 		<div class="minicart-side">
 			<div class="minicart-side-title">
 				<h4>Shopping Cart</h4>

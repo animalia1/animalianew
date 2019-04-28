@@ -5641,7 +5641,7 @@ margin:auto;
 .caroufredsel.product-slider.nav-position-center .product-slider-title h3:before {
   right: 0;
 }
-@media (max-width: 767px) {
+@media (max-width: 1600px) {
   .content-container, .heading-background, .navbar-container {
     width:100%;
     margin:auto;
@@ -6478,9 +6478,9 @@ box-shadow: 1px -2px 28px 2px rgba(0,0,0,0.45);
   position: relative;
   color: #ffffff;
 }
-@media (max-width: 899px) {
+@media (max-width: 1600px) {
   .topbar {
-    display: none;
+    width:100%;
   }
 }
 .topbar .left-topbar {

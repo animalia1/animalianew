@@ -2,6 +2,7 @@
     
     include "../../core/livreurC.php";
     include "../../entities/livreur.php";    
+    include "../../views/selectLivreur.php";   
     include "../../core/livraisonC.php";
     include "../../entities/livraison.php";
     if(isset($_REQUEST['first_name']) and isset($_REQUEST['last_name']) and isset($_REQUEST['address']) and isset($_REQUEST['zip_code']) and isset($_REQUEST['phone_number']) and isset($_REQUEST['email_address']) and isset($_REQUEST['prix']) ){
@@ -9,8 +10,9 @@
             
             $url = '../shipping.php?error=1'; 
         }else{
-        $livraison = new Livraison($_REQUEST['first_name'],$_REQUEST['last_name'],$_REQUEST['address'],$_REQUEST['phone_number'],$_REQUEST['prix'],$_REQUEST['orderid'],$_REQUEST['date'],"pending",$_REQUEST['zip_code'],$_REQUEST['livreur']);
+        $livraison = new Livraison($_REQUEST['first_name'],$_REQUEST['last_name'],$_REQUEST['address'],$_REQUEST['phone_number'],$_REQUEST['prix'],$_REQUEST['orderid'],$_REQUEST['date'],"pending",$_REQUEST['zip_code'],$_REQUEST['livreurid']);
         LivraisonC::ajouterLivraison($livraison);
+        incLivreur($_REQUEST['livreurid'],$_REQUEST['livreurdispo']);
                 $url = '../shipping.php?ajout=1'; }
     }
 
