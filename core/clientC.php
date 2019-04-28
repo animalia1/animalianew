@@ -62,8 +62,7 @@ class clientC
         {
             $liste=$db->query($sql);
             
-    $x= $liste->fetch();
-    return $x;
+    return  $liste;
         }
         catch (Exception $e)
         {

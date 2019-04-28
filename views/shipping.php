@@ -31,6 +31,33 @@
         <![endif]-->
 	</head>
 	<body onload="script();">
+	<?php
+				
+				session_start();
+				if(!(isset($_SESSION['username']))) { ?>
+						<div class="topbar">
+							<div class="container topbar-wap">
+								<div class="row">
+									<div class="col-sm-6 col-left-topbar">
+										<div class="left-topbar">
+											connecte vous pour commander
+											<a href="#"><i class="fa fa-long-arrow-right"></i></a>
+										</div>
+									</div>
+									<div class="col-sm-6 col-right-topbar">
+										<div class="right-topbar">
+											<div class="user-login">
+												<ul class="nav top-nav">
+													<li><a data-rel="loginModal" href="#"> conneter </a></li>
+												</ul>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<?php } ?>
+		
 		<?php
 			include ('header.php');
 			include ('selectLivreur.php');
@@ -108,7 +135,8 @@
 					
 					<input type="hidden" name="orderid"  value="2" />
 					<input type="hidden" name="livreurid"  value="<?php echo $livreurid['id']; ?>" />
-					
+					<input type="hidden" name="idclient"  value="<?php echo $_SESSION['id']; ?>" />
+
 					<input type="hidden" name="livreurdispo"  value="<?php echo $livreurid['dispo']; ?>" />
 
                 </div>

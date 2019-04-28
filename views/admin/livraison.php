@@ -102,6 +102,7 @@ if (isset($_GET["name"])){
 																	<th>etat</th>
 																	<th>Date</th>
 																	<th>zip</th>
+																	<th></th>
 																</tr>
 															</thead>
 															<tbody>
@@ -124,9 +125,18 @@ if (isset($_GET["name"])){
 																	<td><?PHP echo $row['prenom'] ?></td>
 																	<td><?PHP echo $row['adresse']; ?></td>
 																	<td><?PHP echo $row['numero']; ?></td>
-																	<td><span class="label label-danger"><?PHP echo $row['etat']; ?></span> </td>
+																	<td><span class="label <?php if($row['etat'] == "pending"){echo 'label-danger';}else{echo 'label-success';} ?>"><?PHP echo $row['etat']; ?></span> </td>
 																	<td><?PHP echo $row['date']; ?></td>
 																	<td><?PHP echo $row['zip'] ?></td>
+																	<td>
+																		<a href="traitement.php?confirm=1&id=<?PHP echo $row['id']; ?>" class="text-inverse pr-10" title="confirmer" data-toggle="tooltip"><i class="zmdi  zmdi-badge-check txt-success"></i></a>
+																		<a href="traitement.php?del=1&id=<?PHP echo $row['id']; ?>" class="text-inverse pr-10" title="Delete" data-toggle="tooltip"><i class="zmdi zmdi-delete txt-danger"></i></a>
+																		<?php 
+																			if($row['etat'] == "confirmer"){
+																		?>
+																		<a href="traitement.php?msg=1&id=<?PHP echo $row['id']; ?>"  class="text-inverse pr-10" title="envoyer feedback" data-toggle="tooltip"><i class="zmdi   zmdi-email txt-warning"></i></a>
+																			<?php } ?>
+																	</td>
 																	
 																</tr>
 																<?PHP

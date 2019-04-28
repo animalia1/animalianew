@@ -5,13 +5,14 @@
     include "../../views/selectLivreur.php";   
     include "../../core/livraisonC.php";
     include "../../entities/livraison.php";
+    
     if(isset($_REQUEST['first_name']) and isset($_REQUEST['last_name']) and isset($_REQUEST['address']) and isset($_REQUEST['zip_code']) and isset($_REQUEST['phone_number']) and isset($_REQUEST['email_address']) and isset($_REQUEST['prix']) ){
         if(empty($_REQUEST['first_name']) || empty($_REQUEST['last_name']) || empty($_REQUEST['address']) || empty($_REQUEST['zip_code']) || empty($_REQUEST['phone_number']) || empty($_REQUEST['email_address']) || empty($_REQUEST['prix']) ){
             
             $url = '../shipping.php?error=1'; 
         }else{
         $livraison = new Livraison($_REQUEST['first_name'],$_REQUEST['last_name'],$_REQUEST['address'],$_REQUEST['phone_number'],$_REQUEST['prix'],$_REQUEST['orderid'],$_REQUEST['date'],"pending",$_REQUEST['zip_code'],$_REQUEST['livreurid']);
-        LivraisonC::ajouterLivraison($livraison);
+        LivraisonC::ajouterLivraison($livraison,$_REQUEST['idclient']);
         incLivreur($_REQUEST['livreurid'],$_REQUEST['livreurdispo']);
                 $url = '../shipping.php?ajout=1'; }
     }
@@ -35,6 +36,15 @@
             }
             // this can be set based on whatever
         }
+    }
+    else if(isset($_REQUEST['id']) and isset($_REQUEST['confirm']) ){
+        livraisonC::confirmerLivraison($_REQUEST['id']);
+        $url = 'livraison.php'; 
+
+    }else if(isset($_REQUEST['id']) and isset($_REQUEST['del']) ){
+        livraisonC::supprimerLivraison($_REQUEST['id']);
+        $url = 'livraison.php'; 
+
     }
 
     header ("location: $url");

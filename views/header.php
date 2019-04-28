@@ -40,32 +40,7 @@
 		<div id="wrapper" class="wide-wrap">
 			<div class="offcanvas-overlay"></div>
 			<header class="header-container header-type-classic header-navbar-classic header-scroll-resize">
-				<?php
 				
-		session_start();
-		if(!(isset($_SESSION['username']))) { ?>
-				<div class="topbar">
-					<div class="container topbar-wap">
-						<div class="row">
-							<div class="col-sm-6 col-left-topbar">
-								<div class="left-topbar">
-									connecte vous pour commander
-									<a href="#"><i class="fa fa-long-arrow-right"></i></a>
-								</div>
-							</div>
-							<div class="col-sm-6 col-right-topbar">
-								<div class="right-topbar">
-									<div class="user-login">
-										<ul class="nav top-nav">
-											<li><a data-rel="loginModal" href="#"> conneter </a></li>
-										</ul>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-				<?php } ?>
 				<div class="navbar-container">
 					<div class="navbar navbar-default navbar-scroll-fixed ">
 						<div class="navbar-default-wrap">
@@ -211,3 +186,9 @@
 					</div>
 				</div>
 			</header>
+
+			
+		<!-- Sweet-Alert  -->
+	<script src="../vendors/bower_components/sweetalert/dist/sweetalert.min.js"></script>
+		
+		<script src="../dist/js/sweetalert-data.js"></script>

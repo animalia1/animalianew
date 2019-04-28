@@ -2,7 +2,7 @@
 <?PHP
 
 class LivraisonC {
-	public static function ajouterLivraison($livraison){
+	public static function ajouterLivraison($livraison,$clientid){
         
 		
         $nom=$livraison->getNom();
@@ -15,7 +15,7 @@ class LivraisonC {
         $etat=$livraison->getEtat();
         $zipcode=$livraison->getZipcode();
         $livreur=$livraison->getLivreur();
-        $sql="INSERT INTO livraison (order_id_fk, etat, date, id_livreur, prix_livraison, adresse, numero, zip, nom, prenom) VALUES (:order_id_fk, :etat, :date, :id_livreur, :prix_livraison, :adresse, :numero, :zip, :nom, :prenom)";
+        $sql="INSERT INTO livraison (order_id_fk, etat, date, id_livreur, prix_livraison, adresse, numero, zip, nom, prenom, id_client) VALUES (:order_id_fk, :etat, :date, :id_livreur, :prix_livraison, :adresse, :numero, :zip, :nom, :prenom, :clientid)";
 		$db = config::getConnexion();
 		try{
         $req=$db->prepare($sql);
@@ -29,6 +29,8 @@ class LivraisonC {
 		$req->bindValue(':nom',$nom);
 		$req->bindValue(':prenom',$prenom);
 		$req->bindValue(':adresse',$adresse);
+		$req->bindValue(':clientid',$clientid);
+
 		
             $req->execute();
            
@@ -39,6 +41,28 @@ class LivraisonC {
 		
 	}
 	
+
+
+	public static function confirmerLivraison($id){
+		$sql="UPDATE livraison SET etat='confirmer' WHERE id='$id'";
+		
+		$db = config::getConnexion();
+		//$db->setAttribute(PDO::ATTR_EMULATE_PREPARES,false);
+try{		
+        $req=$db->prepare($sql);
+		
+            $req->execute();
+			
+        }
+        catch (Exception $e){
+            echo " Erreur ! ".$e->getMessage();
+        }
+	}
+
+
+
+
+
 	public static function afficherLivraison(){
 		//$sql="SElECT * From employe e inner join formationphp.employe a on e.cin= a.cin";
 		$sql="SElECT * From livraison";
@@ -65,12 +89,12 @@ class LivraisonC {
             die('Erreur: '.$e->getMessage());
         }	
 	}
-	public static function supprimerLivreur($nom){
+	public static function supprimerLivraison($id){
 		
-		$sql="DELETE FROM livreur where nom= :nom";
+		$sql="DELETE FROM livraison where id= :id";
 		$db = config::getConnexion();
         $req=$db->prepare($sql);
-		$req->bindValue(':nom',$nom);
+		$req->bindValue(':id',$id);
 		try{
 			$req->execute();
            // header('Location: index.php');

@@ -19,6 +19,7 @@
 		<link rel='stylesheet' href='css/commerce.css' type='text/css' media='all'/>
 		<link rel='stylesheet' href='css/custom.css' type='text/css' media='all'/>
 		<link rel='stylesheet' href='css/magnific-popup.css' type='text/css' media='all'/>
+		<link href="../vendors/bower_components/sweetalert/dist/sweetalert.css" rel="stylesheet" type="text/css">
 
 		<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
         <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -28,7 +29,36 @@
         <![endif]-->
 	</head>
 	<body>
+	<?php
+				
+				session_start();
+				if(!(isset($_SESSION['username']))) { ?>
+						<div class="topbar">
+							<div class="container topbar-wap">
+								<div class="row">
+									<div class="col-sm-6 col-left-topbar">
+										<div class="left-topbar">
+											connecte vous pour commander
+											<a href="#"><i class="fa fa-long-arrow-right"></i></a>
+										</div>
+									</div>
+									<div class="col-sm-6 col-right-topbar">
+										<div class="right-topbar">
+											<div class="user-login">
+												<ul class="nav top-nav">
+													<li><a data-rel="loginModal" href="#"> conneter </a></li>
+												</ul>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<?php } ?>
 		<?php include ("header.php"); 
+		if(isset($_GET['login'])){
+			echo '<script>swal("Parfait!", "vous ete maintenent connecter", "success");</script>';
+		}
 		?>
 			<div class="content-container no-padding"style="z-index: 1;">
 				<div class="container-full">
@@ -147,9 +177,8 @@
 											<div class="commerce columns-4">
 												<ul class="products columns-4" data-columns="4">
 													<?php 
-													
 													$produit1C=new produitC();
-														$listeproduit=$produit1C->afficherProduit();
+														$listeproduit=$produit1C->afficherNouveauProduit();
 														foreach($listeproduit as $row){ 
 													?>
 													<li class="product product-no-border style-2">
@@ -220,14 +249,15 @@
 									<div class="col-sm-7 pt-12">
 										<p class="white italic size-15 mb-0">Connects wirelessly</p>
 										<h2 class="custom_heading white mt-0">Immaculate sound</h2>
-										<p class="white">Lorem ipsum dolor sit amet, natum aeterno sanctus ei per, fastidii torquatos nam ex. Amet vitae prodesset ut qui, labores civibus appellantur pri ei, pro cu tation dissentias. An per quando ornatus platonem, suas prodesset vel ad. Quas laoreet cotidieque cum ut, vix et insolens explicari corrumpit. Simul commodo et has, te tempor recusabo mea, eam sumo fabulas definiebas eu. No scripta legendos liberavisse vis.</p>
+										<p class="white">ANIMALIA vous propose un large choix de produits de qualité en alimentation, accessoires et hygiène pour vos animaux de compagnie.
+														</br>Ouvert 7j/7 de 9H à 20H</p>
 									</div>
 									<div class="col-sm-5 pb-3">
 										<div class="special-product">
 											<div class="special-product-wrap">
 												<div class="special-product-image">
 													<a href="#">
-														<img width="470" height="470" src="images/thumb_470x470.jpg" alt="special_product"/>
+														<img class="mt-2" width="470" height="470" src="images/store.jpg" alt="special_product"/>
 													</a>
 												</div>
 											</div>
@@ -430,7 +460,7 @@
 
 
 		<?php 
-
+		if(!($_SESSION['id'])){ $id= $_SESSION['id'];}
 		if(!($_SESSION['username'])){ ?>
 		<div class="modal fade user-login-modal" id="userloginModal" tabindex="-1" role="dialog" aria-hidden="true">
 			<div class="modal-dialog">
@@ -597,6 +627,7 @@
 		<script type='text/javascript' src='js/extensions/revolution.extension.navigation.min.js'></script>
 		<script type='text/javascript' src='js/extensions/revolution.extension.migration.min.js'></script>
 		<script type='text/javascript' src='js/extensions/revolution.extension.parallax.min.js'></script>
+
 		<script type="text/javascript">
 
 			var tpj=jQuery;

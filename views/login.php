@@ -12,7 +12,10 @@ if (isset($_REQUEST['username']) and isset($_REQUEST['password'])  and  $_REQUES
     if($x)
 
     {
-        $_SESSION['id'] = $x['id'];
+        foreach($x as $client){
+            $_SESSION['id'] = $client['id'];
+
+        }
         $_SESSION['username']= $nom;
         $_SESSION['password']= $_REQUEST['password'];
 

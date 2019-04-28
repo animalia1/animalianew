@@ -49,21 +49,21 @@
 											<form method="POST" action="traitement2.php" id="categorie"  enctype="multipart/form-data">
 												<h6 class="txt-dark capitalize-font"><i class="zmdi zmdi-info-outline mr-10"></i>À propos du produit</h6>
 												<hr class="light-grey-hr"/>
+
 												<div class="row">
 													<div class="col-md-6">
-														<div class="form-group">
-															<label class="control-label mb-10">Nom de produit</label>
-															<input  type="text" required="" id="firstName" class="form-control"  placeholder="Rounded Chair" onmouseout="controlenom()" name="nom" value ="<?php if(isset($_REQUEST['edit'])){echo $produit['nom'];}?>">
-															<input type="hidden" required="" name="id" value="<?php if(isset($_GET['edit'])){echo $_GET['edit'];} ?>">
-															<p id="firstnamealert" style="color:red;"></p>
-														</div>
+													<label class="control-label mb-10">type d'animaux</label>
+														<select class="form-control" data-placeholder="Choose a Category" tabindex="1" name="type_animaux" id="type_animaux" form="categorie" onchange="var url= 'add-products.php?type_animaux='  +document.getElementById('type_animaux').value;location.replace(url);" >
+																<option>--choisir--</option>   
+														    <option <?php if(isset($_REQUEST['type_animaux'])){ if($_REQUEST['type_animaux'] == "chats"){echo "selected";} }?>>chats</option>
+																<option <?php if(isset($_REQUEST['type_animaux'])){ if($_REQUEST['type_animaux'] == "chiens"){echo "selected";} }?> >chiens</option>
+																<option  <?php if(isset($_REQUEST['type_animaux'])){ if($_REQUEST['type_animaux'] == "oiseaux"){echo "selected";} }?> >oiseaux</option>
+																<option>tout les animaux</option>
+                                </select>
+														
 													</div>
-													<!--/span-->
 													
 													<!--/span-->
-												</div>
-												<!-- Row -->
-												<div class="row">
 													<div class="col-md-6">
 														<div class="form-group">
 															<label class="control-label mb-10">Catégorie</label>
@@ -71,7 +71,7 @@
 																
 																<?PHP
 															$category1C=new categoryC();
-															$listecategory=$category1C->afficherCategory();
+															$listecategory=$category1C->afficherCategoryan($_REQUEST['type_animaux']);
 																foreach($listecategory as $row){  
 	                             
 															?>
@@ -84,22 +84,27 @@
 										
 														</div>
 													</div>
-													<!--/span-->
-													<div class="col-md-6">
-													<label class="control-label mb-10">type d'animaux</label>
-														<select class="form-control" data-placeholder="Choose a Category" tabindex="1" name="type_animaux" form="categorie">
-														        
-														        <option>chats</option>
-																<option>chiens</option>
-																<option>oiseaux</option>
-																<option>chats</option>
-																<option>tout les animaux</option>
-                                </select>
-														
-													</div>
-													<!--/span-->
 												</div>
 												<!--/row-->
+
+												<div class="row">
+													<div class="col-md-6">
+														<div class="form-group">
+															<label class="control-label mb-10">Nom de produit</label>
+															<input  type="text" required="" id="firstName" class="form-control"  placeholder="nom" onmouseout="controlenom()" name="nom" value ="<?php if(isset($_REQUEST['edit'])){echo $produit['nom'];}?>">
+															<input type="hidden" required="" name="id" value="<?php if(isset($_GET['edit'])){echo $_GET['edit'];} ?>">
+															<p id="firstnamealert" style="color:red;"></p>
+														</div>
+													</div>
+													<!--/span-->
+													
+													<!--/span-->
+												</div>
+
+												<!-- Row -->
+												
+													<!--/span-->
+												
 												<div class="row">
 													<div class="col-md-6">
 														<div class="form-group">

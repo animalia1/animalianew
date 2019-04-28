@@ -26,7 +26,10 @@
         <![endif]-->
 	</head>
 	<body>
-		<?php include ("header.php"); 
+		<?php
+		
+		session_start();
+		include ("header.php"); 
 			include ("../core/favorisC.php");
 		?>
 		<?php 

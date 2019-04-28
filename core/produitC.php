@@ -31,6 +31,19 @@ class produitC {
             die('Erreur: '.$e->getMessage());
         }	
         }
+        
+        function afficherNouveauProduit(){
+            //$sql="SElECT * From employe e inner join formationphp.employe a on e.cin= a.cin";
+            $sql="SElECT * From produit ORDER BY date DESC LIMIT 4";
+            $db = config::getConnexion();
+            try{
+            $liste=$db->query($sql);
+            return $liste;
+            }
+            catch (Exception $e){
+                die('Erreur: '.$e->getMessage());
+            }	
+            }
 
 
         function afficherProduitc($id){
