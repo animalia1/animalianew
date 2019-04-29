@@ -60,12 +60,41 @@ try{
 	}
 
 
+	public static function envoyerMsg($id){
+		$sql="UPDATE client SET message='1' WHERE id='$id'";
+		
+		$db = config::getConnexion();
+		//$db->setAttribute(PDO::ATTR_EMULATE_PREPARES,false);
+try{		
+        $req=$db->prepare($sql);
+		
+            $req->execute();
+			
+        }
+        catch (Exception $e){
+            echo " Erreur ! ".$e->getMessage();
+        }
+	}
 
+	public static function envoyerMsgAdmin($id,$msg){
 
+		$sql="INSERT into feedback (id_client,msg) VALUES ('$id','$msg')";		
+		$db = config::getConnexion();
+		//$db->setAttribute(PDO::ATTR_EMULATE_PREPARES,false);
+try{		
+        $req=$db->prepare($sql);
+		
+            $req->execute();
+			
+        }
+        catch (Exception $e){
+            echo " Erreur ! ".$e->getMessage();
+        }
+	}
 
 	public static function afficherLivraison(){
 		//$sql="SElECT * From employe e inner join formationphp.employe a on e.cin= a.cin";
-		$sql="SElECT * From livraison";
+		$sql="SELECT a.nom as nomlivreur, e.nom, e.prenom, e.adresse, e.numero, e.order_id_fk, e.etat, e.id, e.zip, e.date From livraison e inner join animalia.livreur a on e.id_livreur= a.id";
 		$db = config::getConnexion();
 		try{
 		$liste=$db->query($sql);
@@ -77,7 +106,7 @@ try{
 	}
 	public static function afficherLivreurc($id){
 		//$sql="SElECT * From employe e inner join formationphp.employe a on e.cin= a.cin";
-		$sql="SElECT * From livreur where id='$id'";
+		$sql="SELECT * From livreur where id='$id'";
 		$db = config::getConnexion();
 		try{
 			$liste=$db->query($sql);
@@ -89,6 +118,34 @@ try{
             die('Erreur: '.$e->getMessage());
         }	
 	}
+
+	public static function afficherFeedback(){
+		//$sql="SElECT * From employe e inner join formationphp.employe a on e.cin= a.cin";
+		$sql="SELECT * From feedback e inner join animalia.client a on e.id_client= a.id";
+		$db = config::getConnexion();
+        try{
+        $liste=$db->query($sql);
+        return $liste;
+        }
+        catch (Exception $e){
+            die('Erreur: '.$e->getMessage());
+        }	
+		}
+
+		public static function supprimerFeed($id){
+			//$sql="SElECT * From employe e inner join formationphp.employe a on e.cin= a.cin";
+			$sql="DELETE FROM feedback where id_feed= $id";
+			$db = config::getConnexion();
+			try{
+			$liste=$db->query($sql);
+			return $liste;
+			}
+			catch (Exception $e){
+				die('Erreur: '.$e->getMessage());
+			}	
+			}
+		
+
 	public static function supprimerLivraison($id){
 		
 		$sql="DELETE FROM livraison where id= :id";

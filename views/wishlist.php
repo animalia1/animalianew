@@ -1,3 +1,6 @@
+
+
+
 <!doctype html>
 <html lang="en-US">
 	<head>
@@ -182,101 +185,73 @@
 		
 
                         <!--shipping rami work-->
-						<div class="content-container mt-0">
-				<div class="container ">
-					<div class="row mt-0">                
-<h3><span class="number"><i class="icon-bag txt-black mr-10"></i></span><span class="head-font capitalize-font">shipping</span></h3>
-<fieldset>
-<form method="get" action="admin/traitement.php">
-    <div class="row">
-        <div class="col-sm-12 mt-20">
-            <div class="form-wrap">
-                <div class="form-group">
-                    <div class="row">
-
-                        <div class="col-md-6 col-xs-12">
-                            <label class="control-label mb-10" for="firstName">Nom :</label>
-                            <input id="firstName" type="text" name="first_name" class="form-control required" value="" onblur="controlFirstName(this)" />
-                            <p style="color:red;" id="fisrtNameAlert"></p>
-                        </div>
-                        <div class="span1"></div>
-                        <div class="col-md-6 col-xs-12">
-                            <label class="control-label mb-10" for="lastName">Prenom:</label>
-                            <input id="lastName" type="text" name="last_name" class="form-control required" value="" onblur="controlLastName(this)" />
-                            <p style="color:red;" id="lastNameAlert"></p>
-                        </div>
-                    </div>
-				</div>
-				<!--Google map-->
-				<div id="map" class="z-depth-1-half map-container mb-30" style="height: 400px"></div>
-				<div class="span1"></div>
-
-
-				<div class="form-group">
-                    <label class="control-label mb-10" for="emailAddress">Adresse:</label>
-                    <input id="Address" type="text" name="address" class="form-control" required="" value="" />
-                    <p style="color:red;" id="emailAlert"></p>
-				</div>
-				<div class="span1"></div>
-				
-                <div class="form-group">
-						<div class="row">
-							
-					<div class="col-md-6 col-xs-12">
-                    <label class="control-label mb-10" for="postalCode">Code postale:</label>
-                    <input id="postalCode" type="text" name="zip_code"  data-mask="99999-9999" class="form-control required" value="" onblur="controleCodePostale(this)" />
-					<p style="color:red;" id="codePostaleAlert"></p>
-					</div>
-
-					<div class="span1"></div>
-					<div class="col-md-6 col-xs-12">
-                    <label class="control-label mb-10" for="phoneNumber">Numero telephone:</label>
-                    <input type="text" id="phoneNumber"  data-mask="+40 999 999 999" name="phone_number" class="form-control required" value="" onblur="controleTelephone(this)" />
-					<p style="color:red;" id="phoneAlert"></p>
-				</div>
-					</div>
-				</div>
-                <div class="form-group">
-                    <label class="control-label mb-10" for="emailAddress">Adresse email:</label>
-                    <input id="emailAddress" type="text" name="email_address" class="form-control required" value="" onblur="verifMail(this)"/>
-                    <p style="color:red;" id="emailAlert"></p>
-                </div>
-				<input type="hidden" name="prix"  id="prixLivraison2" />
-					<input type="hidden" name="date" id="test"  value="" />
-                <div class="form-group">
-					<label class="control-label mb-10" ></label>
-					<label class="control-label mb-10" for="calcul">prix livraison (choisir votre position sur la map) : </label>
-
-                    <label class="control-label mb-10" id="prixLivraison"  style="color:green;" value=""></label>
-					
-					<input type="hidden" name="orderid"  value="2" />
-					<input type="hidden" name="livreurid"  value="<?php echo $livreurid['id']; ?>" />
-					<input type="hidden" name="idclient"  value="<?php echo $_SESSION['id']; ?>" />
-
-					<input type="hidden" name="livreurdispo"  value="<?php echo $livreurid['dispo']; ?>" />
-
-                </div>
-
-				<label class="control-label mb-10" for="calcul"><?php $message=calcul($livreurid['dispo']); echo $message; ?></label>
-                <div class="form-group mb-0 mt-30">
-                        <input type="submit"  class="btn btn-default " id="submitButton" onclick="submit()" >
-                    
-                </div>
-                
-
-            </div>
-        </div>
-    </div>
-	</form>
-</fieldset>
-
-
-
+						
+			<div class="content-container">
+				<div class="container">
+						<div class="row row-fluid">
+						<div class="col-md-12">
+							<div class="main-content">
+								<form class="commerce">
+									<div class="wishlist-title ">
+										<h2>My wishlist on WooW</h2>
+									</div>
+									<table class="shop_table cart wishlist_table">
+										<thead>
+											<tr>
+												<th class="product-remove"></th>
+												<th class="product-thumbnail"></th>
+												<th class="product-name"><span class="nobr">Product Name</span></th>
+												<th class="product-price"><span class="nobr">Unit Price </span></th>
+												<th class="product-stock-stauts"><span class="nobr">Stock Status </span></th>
+												<th class="product-add-to-cart"></th>
+											</tr>
+										</thead>
+										<tbody>
+											<?php 
+											include ("../core/favorisC.php");
+											if(isset($_REQUEST['supp']))
+											{
+												favorisC::supprimerFavoris($_REQUEST['user'],$_REQUEST['supp']);
+											}
+												$list = favorisC::afficherFavoris($_SESSION['id']);
+												foreach($list as $fav){ ?>
+											<tr>
+												<td class="product-remove">
+													<a href="?user=<?php echo $fav['userid'] ?>&supp=<?php echo $fav['productid'] ?>" class="remove remove_from_wishlist">&times;</a>
+												</td>
+												<td class="product-thumbnail">
+													<a href="shop-detail-1.html">
+														<img width="100" height="150" src="<?php echo "admin/".$fav['image'] ?>" alt="Product-1"/>
+													</a>
+												</td>
+												<td class="product-name">
+													<a href="shop-detail.php?id=<?php echo $fav['productid'] ?>"><?php echo $fav['nomproduit'] ?></a>
+												</td>
+												<td class="product-price">
+													<span class="amount">&#36;<?php echo $fav['price'] ?>
+													</span>
+												</td>
+												<td class="product-stock-status">
+													<span class="wishlist-in-stock">In Stock</span>
+												</td>
+												<td class="product-add-to-cart">
+											 		<a href="#" class="add_to_cart_button button rounded"> Ajouter au panier</a>
+												</td>
+											</tr>
+												<?php } ?>
+										</tbody>
+										<tfoot>
+											<tr>
+												<td colspan="6">&nbsp;</td>
+											</tr>
+										</tfoot>
+									</table>
+								</form>
+							</div>
+						</div>
 					</div>
 				</div>
 			</div>
-			
-
 
 
 			<?php

@@ -45,6 +45,18 @@
         livraisonC::supprimerLivraison($_REQUEST['id']);
         $url = 'livraison.php'; 
 
+    }else if(isset($_REQUEST['id']) and isset($_REQUEST['msg']) ){
+        livraisonC::envoyerMsg($_REQUEST['id']);
+        $url = 'livraison.php'; 
+
+    }else if(isset($_REQUEST['message']) and isset($_REQUEST['idclient']) ){
+        livraisonC::envoyerMsgAdmin($_REQUEST['idclient'],$_REQUEST['message']);
+        $url = '../index.php'; 
+
+    }else if(isset($_REQUEST['feedback']) ){
+        livraisonC::supprimerFeed($_REQUEST['feedback']);
+        $url = 'livraison.php'; 
+
     }
 
     header ("location: $url");

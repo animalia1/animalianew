@@ -58,7 +58,7 @@ if (isset($_GET["name"])){
 				<!-- Title -->
 				<div class="row heading-bg">
 					<div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
-						<h5 class="txt-dark">Gestion Livreur</h5>
+						<h5 class="txt-dark">Gestion Livraison</h5>
 					</div>
 					<!-- Breadcrumb -->
 					<div class="col-lg-9 col-sm-8 col-md-8 col-xs-12">
@@ -102,7 +102,9 @@ if (isset($_GET["name"])){
 																	<th>etat</th>
 																	<th>Date</th>
 																	<th>zip</th>
-																	<th></th>
+																	
+																	<th>livreur</th>
+																	<th>action</th>
 																</tr>
 															</thead>
 															<tbody>
@@ -128,13 +130,14 @@ if (isset($_GET["name"])){
 																	<td><span class="label <?php if($row['etat'] == "pending"){echo 'label-danger';}else{echo 'label-success';} ?>"><?PHP echo $row['etat']; ?></span> </td>
 																	<td><?PHP echo $row['date']; ?></td>
 																	<td><?PHP echo $row['zip'] ?></td>
+																	<td><?PHP echo $row['nomlivreur'] ?></td>
 																	<td>
 																		<a href="traitement.php?confirm=1&id=<?PHP echo $row['id']; ?>" class="text-inverse pr-10" title="confirmer" data-toggle="tooltip"><i class="zmdi  zmdi-badge-check txt-success"></i></a>
 																		<a href="traitement.php?del=1&id=<?PHP echo $row['id']; ?>" class="text-inverse pr-10" title="Delete" data-toggle="tooltip"><i class="zmdi zmdi-delete txt-danger"></i></a>
 																		<?php 
 																			if($row['etat'] == "confirmer"){
 																		?>
-																		<a href="traitement.php?msg=1&id=<?PHP echo $row['id']; ?>"  class="text-inverse pr-10" title="envoyer feedback" data-toggle="tooltip"><i class="zmdi   zmdi-email txt-warning"></i></a>
+																		<a href="traitement.php?msg=1&id=<?PHP echo $_SESSION['id']; ?>"  class="text-inverse pr-10" title="envoyer feedback" data-toggle="tooltip"><i class="zmdi   zmdi-email txt-warning"></i></a>
 																			<?php } ?>
 																	</td>
 																	
@@ -156,15 +159,65 @@ if (isset($_GET["name"])){
 							</div>
 						</div>
 					</div>
+					
 				</div>
 				<!-- /Row -->
 
 
+				<h5 class="txt-dark pb-30">feedbacks</h5>
 
+	<?php 
+		$list=LivraisonC::afficherFeedback();
+		foreach($list as $feed){
+	?>
+	<div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+							<div class="panel panel-default card-view panel-refresh">
+								<div class="refresh-container">
+									<div class="la-anim-1"></div>
+								</div>
+								<div class="panel-heading">
+									<div class="pull-left">
+										<h6 class="panel-title txt-dark"><?php echo $feed['nom_utilisateur'];?></h6>
+									</div>
+									<div class="pull-right">
+										<a class="pull-left inline-block mr-15" data-toggle="collapse" href="#collapse_1" aria-expanded="true">
+											<i class="zmdi zmdi-chevron-down"></i>
+											<i class="zmdi zmdi-chevron-up"></i>
+										</a>
+										<div class="pull-left inline-block dropdown mr-15">
+											<a class="dropdown-toggle" data-toggle="dropdown" href="#" aria-expanded="false" role="button"><i class="zmdi zmdi-more-vert"></i></a>
+											<ul class="dropdown-menu bullet dropdown-menu-right"  role="menu">
+												<li role="presentation"><a href="javascript:void(0)" role="menuitem"><i class="icon wb-reply" aria-hidden="true"></i>option 1</a></li>
+												<li role="presentation"><a href="javascript:void(0)" role="menuitem"><i class="icon wb-share" aria-hidden="true"></i>option 2</a></li>
+												<li role="presentation"><a href="javascript:void(0)" role="menuitem"><i class="icon wb-trash" aria-hidden="true"></i>option 3</a></li>
+											</ul>
+										</div>
+										<a href="#" class="pull-left inline-block refresh mr-15">
+											<i class="zmdi zmdi-replay"></i>
+										</a>
+										<a href="#" class="pull-left inline-block full-screen mr-15">
+											<i class="zmdi zmdi-fullscreen"></i>
+										</a>
+										<a class="pull-left inline-block close-panel" href="traitement.php?feedback=<?php echo $feed['id_feed'];?>" >
+											<i class="zmdi zmdi-close"></i>
+										</a>
+									</div>
+									<div class="clearfix"></div>
+								</div>
+								<div  id="collapse_1" class="panel-wrapper collapse in">
+									<div  class="panel-body">
+										<p><?php echo $feed['msg'];?></p>
+									</div>
+								</div>
+							</div>
+						</div>
+						
+		<?php } ?>
+						
+	</div>
 
-
-    </div>
 </div>
+
 <script src="../../dist/js/control.js"></script>
 <?php
 	if(isset($_GET['edit'])){

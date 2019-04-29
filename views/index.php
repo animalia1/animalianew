@@ -54,7 +54,37 @@
 								</div>
 							</div>
 						</div>
-						<?php } ?>
+						<?php }else{ ?>
+							<div class="topbar">
+							<div class="container topbar-wap">
+								<div class="row">
+									<div class="col-sm-6 col-left-topbar">
+										<div class="left-topbar">
+										vous ete connecter autant que <?php echo $_SESSION['username'];?>
+											<a href="#"><i class="fa fa-long-arrow-right"></i></a>
+										</div>
+									</div>
+									<div class="col-sm-6 col-right-topbar">
+										<div class="right-topbar">
+											<div class="user-login">
+												<ul class="nav top-nav">
+													<li><a href="?logout"> deconneter </a></li>
+												</ul>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div> <?php }
+						if(isset($_REQUEST['logout'])){
+							session_destroy();
+							
+						}
+						?>
+
+
+
+
 		<?php include ("header.php"); 
 		if(isset($_GET['login'])){
 			echo '<script>swal("Parfait!", "vous ete maintenent connecter", "success");</script>';
@@ -177,6 +207,11 @@
 											<div class="commerce columns-4">
 												<ul class="products columns-4" data-columns="4">
 													<?php 
+													include ("../core/favorisC.php");
+													if(isset($_REQUEST['favoris']) and isset($_SESSION['id'])){
+														$favorisC = new favorisC();
+														$favorisC->ajouterFavoris($_SESSION['id'],$_REQUEST['favoris']);
+													}
 													$produit1C=new produitC();
 														$listeproduit=$produit1C->afficherNouveauProduit();
 														foreach($listeproduit as $row){ 
@@ -204,7 +239,7 @@
 																			<div class="loop-add-to-wishlist">
 																				<div class="yith-wcwl-add-to-wishlist">
 			                                                                        <div class="yith-wcwl-add-button">
-			                                                                            <a href="#" class="add_to_wishlist">
+			                                                                            <a href="?favoris=<?php echo $row['id'];?>" class="add_to_wishlist">
 			                                                                                Add to Wishlist
 			                                                                            </a>
 			                                                                        </div>
@@ -322,6 +357,96 @@
 								</div>
 							</div>
 						</div>
+
+
+
+
+						<div class="container">
+							<div class="row row-fluid mb-10">
+								<div class="col-sm-12">
+									<div class="caroufredsel product-slider nav-position-center" data-height="variable" data-visible-min="1" data-responsive="1" data-infinite="1" data-autoplay="0">
+										<div class="product-slider-title">
+											<h3 class="el-heading">nouveaute</h3>
+										</div>
+										<div class="caroufredsel-wrap">
+											<div class="commerce columns-4">
+												<ul class="products columns-4" data-columns="4">
+													<?php 
+													$produit2C=new favorisC();
+														$listefavoris=$produit2C->afficherProduitFavoris();
+														foreach($listefavoris as $row){ 
+													?>
+													<li class="product product-no-border style-2">
+														<div class="product-container">
+															<figure>
+																<div class="product-wrap">
+																	<div class="product-images">
+																		<span class="onsale">NEW!</span>
+																		<div class="shop-loop-thumbnail shop-loop-front-thumbnail">
+																			<a href="<?php echo 'shop-detail.php?id='.$row['id'];?>"><img width="328" height="328" src="<?php echo 'admin/'.$row['image'];?>" alt=""/></a>
+																		</div>
+																		<div class="shop-loop-thumbnail shop-loop-back-thumbnail">
+																			<a href="shop-detail-1.html"><img width="450" height="450" src="<?php echo 'admin/'.$row['image'];?>" alt=""/></a>
+																		</div>
+																	</div>
+																</div>
+																<figcaption>
+																	<div class="shop-loop-product-info">
+																		<div class="info-meta clearfix">
+																			<div class="star-rating">
+																				<span style="width:0%"></span>
+																			</div>
+																			<div class="loop-add-to-wishlist">
+																				<div class="yith-wcwl-add-to-wishlist">
+			                                                                        <div class="yith-wcwl-add-button">
+			                                                                            <a href="?favoris=<?php echo $row['id'];?>" class="add_to_wishlist">
+			                                                                                Add to Wishlist
+			                                                                            </a>
+			                                                                        </div>
+			                                                                    </div>
+			                                                                </div>
+																		</div>
+																		<div class="info-content-wrap">
+																			<h3 class="product_title">
+																				<a href="shop-detail-1.html"><?php echo $row['nom'];?></a>
+																			</h3>
+																			<div class="info-price">
+																				<span class="price">
+																					<ins><span class="amount"><?php echo $row['price'].' dt';?></span></ins>
+																				</span>
+																			</div>
+																			<div class="loop-action">
+																				<div class="loop-add-to-cart">
+																					<a href="#" class="add_to_cart_button">
+																						Add to cart
+																					</a>
+																				</div>
+																			</div>
+																		</div>
+																	</div>
+																</figcaption>
+															</figure>
+														</div>
+													</li>
+		<?php } ?>
+												</ul>
+											</div>
+											<a href="#" class="caroufredsel-prev"></a>
+											<a href="#" class="caroufredsel-next"></a>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+
+
+
+
+
+
+
+
+
 			<footer id="footer" class="footer">
 				<div class="footer-newsletter">
 					<div class="container">
@@ -460,48 +585,38 @@
 
 
 		<?php 
-		if(!($_SESSION['id'])){ $id= $_SESSION['id'];}
-		if(!($_SESSION['username'])){ ?>
+		if(!(isset($_SESSION['username']))){ ?>
 		<div class="modal fade user-login-modal" id="userloginModal" tabindex="-1" role="dialog" aria-hidden="true">
 			<div class="modal-dialog">
 				<div class="modal-content">
-					<form id="userloginModalForm"  methode="get" action="login.php">
+					<form id="userloginModalForm"  methode="post" action="login.php">
 						<div class="modal-header">
 							<button type="button" class="close" data-dismiss="modal">
 								<span aria-hidden="true">&times;</span><span class="sr-only">Close</span>
 							</button>
-							<h4 class="modal-title">Login</h4>
+							<h4 class="modal-title">Connecter</h4>
 						</div>
 						<div class="modal-body">
-							<div class="user-login-facebook">
-								<button class="btn-login-facebook" type="button">
-									<i class="fa fa-facebook"></i>Sign in with Facebook
-								</button>
-							</div>
-							<div class="user-login-or"><span>or</span></div>
 							<div class="form-group">
-								<label>Username</label>
+								<label>nom d'utilisateur</label>
 								<input type="text" id="username" name="username" required class="form-control" value="" placeholder="Username">
 							</div>
 							<div class="form-group">
-								<label for="password">Password</label>
+								<label for="password">mot de passe</label>
 								<input type="password" id="password" required value="" name="password" class="form-control" placeholder="Password">
 							</div>
 							<div class="checkbox clearfix">
 								<label class="form-flat-checkbox pull-left">
 									<input type="checkbox" name="rememberme" id="rememberme" value="forever">
-									<i></i>&nbsp;Remember Me
+									<i></i>&nbsp;rester connecter
 								</label>
-								<span class="lostpassword-modal-link pull-right">
-									<a href="#lostpasswordModal" data-rel="lostpasswordModal">Lost your password?</a>
-								</span>
 							</div>
 						</div>
 						<div class="modal-footer">
 							<span class="user-login-modal-register pull-left">
-								<a data-rel="registerModal" href="#">Not a Member yet?</a>
+								<a data-rel="registerModal" href="#">pas encore un membre?</a>
 							</span>
-							<button type="submit" class="btn btn-default btn-outline">Sign in</button>
+							<button type="submit" class="btn btn-default btn-outline">connecter</button>
 						</div>
 					</form>
 				</div>
@@ -515,17 +630,11 @@
 							<button type="button" class="close" data-dismiss="modal">
 								<span aria-hidden="true">&times;</span><span class="sr-only">Close</span>
 							</button>
-							<h4 class="modal-title">Register account</h4>
+							<h4 class="modal-title">creation d'en compte</h4>
 						</div>
 						<div class="modal-body">
-							<div class="user-login-facebook">
-								<button class="btn-login-facebook" type="button">
-									<i class="fa fa-facebook"></i>Sign in with Facebook
-								</button>
-							</div>
-							<div class="user-login-or"><span>or</span></div>
 							<div class="form-group">
-								<label>Username</label>
+								<label>nom d'utilisateur</label>
 								<input type="text" name="username" required class="form-control" value="" placeholder="Username">
 							</div>
 							<div class="form-group">
@@ -533,19 +642,19 @@
 								<input type="email" id="email" name="email" required class="form-control" value="" placeholder="Email">
 							</div>
 							<div class="form-group">
-								<label for="user_password">Password</label>
+								<label for="user_password">mot de passe</label>
 								<input type="password" id="password1" required value="" name="password1" class="form-control" placeholder="Password">
 							</div>
 							<div class="form-group">
-								<label for="user_password">Retype password</label>
+								<label for="user_password">verifier mot de passe</label>
 								<input type="password" id="password2" required value="" name="password2" class="form-control" placeholder="Retype password">
 							</div>
 						</div>
 						<div class="modal-footer">
 							<span class="user-login-modal-link pull-left">
-								<a data-rel="loginModal" href="#loginModal">Already have an account?</a>
+								<a data-rel="loginModal" href="#loginModal">tu as un compte?</a>
 							</span>
-							<button type="submit" class="btn btn-default btn-outline">Register</button>
+							<button type="submit" class="btn btn-default btn-outline">faire un compte</button>
 						</div>
 					</form>
 				</div>

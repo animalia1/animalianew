@@ -14,6 +14,7 @@ if (isset($_REQUEST['username']) and isset($_REQUEST['password'])  and  $_REQUES
     {
         foreach($x as $client){
             $_SESSION['id'] = $client['id'];
+            $_SESSION['msg'] = $client['message'];
 
         }
         $_SESSION['username']= $nom;
@@ -27,7 +28,7 @@ if (isset($_REQUEST['username']) and isset($_REQUEST['password'])  and  $_REQUES
     else
 
     {
-        echo sha1($_REQUEST['password']);
+        echo "check your details";
     }
 
 }

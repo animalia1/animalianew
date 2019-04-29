@@ -1,7 +1,7 @@
 <div class="offcanvas open">
 			<div class="offcanvas-wrap">
 				<div class="offcanvas-user clearfix">
-					<a class="offcanvas-user-wishlist-link" href="wishlist.html">
+					<a class="offcanvas-user-wishlist-link" href="wishlist.php">
 						<i class="fa fa-heart-o"></i> My Wishlist
 					</a>
 					<a class="offcanvas-user-account-link" href="my-account.html">
@@ -70,7 +70,7 @@
 											<nav class="collapse navbar-collapse primary-navbar-collapse">
 												<ul class="nav navbar-nav primary-nav">
 													<li class="current-menu-item menu-item-has-children dropdown">
-														<a href="./index.html" class="dropdown-hover">
+														<a href="./index.php" class="dropdown-hover">
 															<span class="underline">Home</span> <span class="caret"></span>
 														</a>
 													</li>
@@ -160,8 +160,47 @@
 													</div>
 												</div>
 												<div class="navbar-wishlist">
-													<a class="wishlist" href="wishlist.html">
+													<a class="wishlist" href="wishlist.php">
 														<i class="fa fa-heart-o"></i>
+													</a>
+												</div>
+
+
+
+												<div id="responsive-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+											<div class="modal-dialog">
+												<div class="modal-content">
+													<div class="modal-header">
+														<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+														<h5 class="modal-title">Merci d'ecrire un feedback concernant votre derniere commande</h5>
+													</div>
+													
+													<form method="get" action="admin/traitement.php">
+													<div class="modal-body">
+															<div class="form-group">
+																<input type="hidden" name="idclient" value="<?php echo $_SESSION['id'] ?>"/>
+																<label for="message-text" class="control-label mb-1"style="text-align:left;float:left;">Message:</label>
+																<textarea name="message"class="form-control" id="message-text"></textarea>
+															</div>
+													</div>
+													<div class="modal-footer">
+														<button type="button" class="btn btn-default" data-dismiss="modal">fermer</button>
+														<input type="submit" class="btn btn-danger">
+													</div>
+													
+													</form>
+												</div>
+											</div>
+										</div>
+
+
+
+
+												<div class="navbar-user">
+													<a  class="wishlist"  alt="default" data-toggle="<?php if(isset($_SESSION['msg'])){if($_SESSION['msg']){echo "modal";}} ?>" data-target="#responsive-modal">
+															<span class="minicart-icon">
+													<i class="fa fa-comment-o"></i>
+													<span><?php if(isset($_SESSION['msg'])) echo $_SESSION['msg']; else echo "0"; ?></span>
 													</a>
 												</div>
 											</div>
