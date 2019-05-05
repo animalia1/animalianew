@@ -217,7 +217,6 @@ if (isset($_GET["name"])){
 	</div>
 
 </div>
-
 <script src="../../dist/js/control.js"></script>
 <?php
 	if(isset($_GET['edit'])){

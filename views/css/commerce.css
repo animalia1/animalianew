@@ -767,9 +767,6 @@ ul.products:not(.masonry-products).columns-1 li.product {
   cursor: url('../images/zoom-cur.png'), pointer;
 }
 @media (min-width: 992px) {
-  .commerce div.product.style-1 div.single-product-images-slider {
-    padding-left: 95px;
-  }
   .commerce div.product.style-1 div.single-product-images-slider .caroufredsel-next,
   .commerce div.product.style-1 div.single-product-images-slider .caroufredsel-prev {
     display: none !important;
@@ -1504,6 +1501,11 @@ p.demo_store {
 .commerce div.product-quickview-content .summary .product-excerpt:after,
 .commerce div.product .summary .product-excerpt:after {
   bottom: 0;
+}
+
+.product-excerpt {
+  
+text-align: left;
 }
 .commerce div.product-quickview-content p.stock,
 .commerce div.product p.stock {
@@ -2302,7 +2304,7 @@ p.demo_store {
   color: #7e7e7e;
 }
 .commerce ul.products li.product .yith-wcwl-add-to-wishlist .add_to_wishlist:before {
-  content: "\f08a";
+  content: "\f004";
   position: relative;
   display: inline-block;
   font-family: "FontAwesome";

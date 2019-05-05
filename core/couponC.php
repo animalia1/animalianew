@@ -3,7 +3,7 @@
   class couponC {
 
     
-    function ajoutcoupon($coupon){
+    public static  function ajoutcoupon($coupon){
       $sql="insert into coupon(code,promotion,nb_user)
       values(:code,:promotion,:nb_user)";
       $db=config::getConnexion();
@@ -15,8 +15,10 @@
 
 
   }
+  
 
-   function affichecoupon(){
+
+  public static function affichecoupon(){
 		//$sql="SElECT * From employe e inner join formationphp.employe a on e.cin= a.cin";
 		$sql="SELECT * FROM coupon";
 		$db = config::getConnexion();
@@ -29,12 +31,12 @@
         }	
   }
   
-  public static function supprimercoupon($idc){
+  public static function supprimercoupon($code){
 		
-		$sql="DELETE FROM coupon where couponid= :idc";
+		$sql="DELETE FROM coupon where code = :code";
 		$db = config::getConnexion();
         $req=$db->prepare($sql);
-		$req->bindValue(':idc',$idc);
+		$req->bindValue(':code',$code);
 		try{
 			$req->execute();
            // header('Location: index.php');
@@ -45,26 +47,6 @@
 	}
 
 
-  public static function modifcoupon($nb){
-		$sql="UPDATE coupon SET nb_user=:nb";
-		
-		$db = config::getConnexion();
-		//$db->setAttribute(PDO::ATTR_EMULATE_PREPARES,false);
-try{		
-        $req=$db->prepare($sql);
-		
-		
-		$req->bindValue(':nb',$nb);
-		
-            $req->execute();
-			
-        }
-        catch (Exception $e){
-          header('Location: index.php');
-                echo " Erreur ! ".$e->getMessage();
-       echo " Les datas : " ;
-            }
-      }
   
 
 }

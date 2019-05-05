@@ -127,7 +127,64 @@ class produitC {
                     die('Erreur: '.$e->getMessage());
                 }	
                 }	
+                function compterArticles()
+                {
+                   if (isset($_SESSION['panier']))
+                   return count($_SESSION['panier']['id']);
+                   else
+                   return 0;
+                
+                }
+                
+                        function creationPanier(){
+                            if (!isset($_SESSION))
+                               {
+                             session_start();
+                               }
+                            if (!isset($_SESSION['panier'])){
+                               $_SESSION['panier']=array();
+                               $_SESSION['panier']['id'] = array();
+                               $_SESSION['panier']['nom'] = array();
+                               $_SESSION['panier']['prix'] = array();
+                               $_SESSION['panier']['quantity'] = array();
+                               $_SESSION['panier']['verrou'] = false;
+                            }
+                            return true;
+                         }
+                         function recupererProduit($id){
+                            $sql="SELECT * from produit where id=$id";
+                            $db = config::getConnexion();
+                            try{
+                            $req=$db->prepare($sql);
+                             $req->execute();
+                            $produit= $req->fetchALL(PDO::FETCH_OBJ);
+                            return $produit;
+                            }
+                              catch (Exception $e){
+                                  die('Erreur: '.$e->getMessage());
+                              }
+                           }
+                           function recupererProduitduPannier(){
+                         
+                               $ids=array_values($_SESSION['panier']['id']);
+                        
+                              $ids = join("','",$ids);   
+                              $sql="SELECT * from produit where id IN ('$ids') ";
+                              $db = config::getConnexion();
+                              try{
+                              $req=$db->prepare($sql);
+                               $req->execute();
+                              $produit= $req->fetchALL(PDO::FETCH_OBJ);
+                              //$produit=$req->execute();
+                              return $produit;
+                              }
+                                catch (Exception $e){
+                                    die('Erreur: '.$e->getMessage());
+                                }
+                        
+                        }
+            
+    }
     
-	}
-
+     
 ?>

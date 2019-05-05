@@ -29,63 +29,15 @@
         <![endif]-->
 	</head>
 	<body>
-	<?php
-				
-				session_start();
-				if(!(isset($_SESSION['username']))) { ?>
-						<div class="topbar">
-							<div class="container topbar-wap">
-								<div class="row">
-									<div class="col-sm-6 col-left-topbar">
-										<div class="left-topbar">
-											connecte vous pour commander
-											<a href="#"><i class="fa fa-long-arrow-right"></i></a>
-										</div>
-									</div>
-									<div class="col-sm-6 col-right-topbar">
-										<div class="right-topbar">
-											<div class="user-login">
-												<ul class="nav top-nav">
-													<li><a data-rel="loginModal" href="#"> conneter </a></li>
-												</ul>
-											</div>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-						<?php }else{ ?>
-							<div class="topbar">
-							<div class="container topbar-wap">
-								<div class="row">
-									<div class="col-sm-6 col-left-topbar">
-										<div class="left-topbar">
-										vous ete connecter autant que <?php echo $_SESSION['username'];?>
-											<a href="#"><i class="fa fa-long-arrow-right"></i></a>
-										</div>
-									</div>
-									<div class="col-sm-6 col-right-topbar">
-										<div class="right-topbar">
-											<div class="user-login">
-												<ul class="nav top-nav">
-													<li><a href="?logout"> deconneter </a></li>
-												</ul>
-											</div>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div> <?php }
-						if(isset($_REQUEST['logout'])){
-							session_destroy();
-							
-						}
-						?>
+	
 
 
 
 
-		<?php include ("header.php"); 
+		<?php 
+		
+	session_start();
+		include ("header.php"); 
 		if(isset($_GET['login'])){
 			echo '<script>swal("Parfait!", "vous ete maintenent connecter", "success");</script>';
 		}
@@ -102,15 +54,15 @@
  
 												<!--<img src="images/slideshow/dummy.png" alt="" width="1920" height="656" data-lazyload="images/slideshow/slider_1920x657.jpg" data-bgposition="center center" data-bgfit="cover" data-bgrepeat="no-repeat" data-bgparallax="off" class="rev-slidebg">
 												-->
-												<div class="tp-caption home1-small-black tp-resizeme" data-x="386" data-y="217" data-width="['auto']" data-height="['auto']" data-transform_idle="o:1;" data-transform_in="y:[100%];z:0;rZ:-35deg;sX:1;sY:1;skX:0;skY:0;s:2000;e:Power4.easeInOut;" data-transform_out="y:[100%];rZ:0deg;sX:0.7;sY:0.7;s:1000;e:Power3.easeInOut;s:1000;e:Power3.easeInOut;" data-mask_in="x:0px;y:0px;s:inherit;e:inherit;" data-mask_out="x:0;y:0;s:inherit;e:inherit;" data-start="500" data-splitin="chars" data-splitout="none" data-responsive_offset="on" data-elementdelay="0.05">
+												<div class="tp-caption home1-small-black tp-resizeme" data-x="386" data-y="217" data-width="['auto']" data-height="['auto']" data-transform_idle="o:1;" data-transform_in="y:[100%];z:0;rZ:-35deg;sX:1;sY:1;skX:0;skY:0;s:2000;e:Power4.easeInOut;" data-transform_out="y:[100%];rZ:0deg;sX:0.7;sY:0.7;s:1000;e:Power3.easeInOut;s:1000;e:Power3.easeInOut;" data-mask_in="x:0px;y:0px;s:inherit;e:inherit;" data-mask_out="x:0;y:0;s:inherit;e:inherit;" data-start="500" data-splitin="chars" data-splitout="none" data-responsive_offset="on" data-elementdelay="0.05" style="color:#313131;">
 													Tout est disponible 
 												</div>
  
-												<div class="tp-caption primary-button rev-btn" data-x="528" data-y="342" data-width="['auto']" data-height="['auto']" data-transform_idle="o:1;" data-transform_hover="o:1;rX:0;rY:0;rZ:0;z:0;s:0;e:Linear.easeNone;" data-style_hover="c:rgba(0, 0, 0, 1.00);bg:rgba(255, 255, 255, 1.00);bs:solid;bw:1px;cursor:pointer;" data-transform_in="y:[100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;opacity:0;s:2000;e:Power2.easeInOut;" data-transform_out="y:[100%];rZ:0deg;sX:0.7;sY:0.7;s:1000;e:Power3.easeInOut;s:1000;e:Power3.easeInOut;" data-mask_in="x:0px;y:[100%];s:inherit;e:inherit;" data-mask_out="x:0;y:0;s:inherit;e:inherit;" data-start="500" data-splitin="none" data-splitout="none" data-responsive_offset="on" data-responsive="off">
+												<div class="tp-caption primary-button rev-btn" data-x="528" data-y="342" data-width="['auto']" data-height="['auto']" data-transform_idle="o:1;" data-transform_hover="o:1;rX:0;rY:0;rZ:0;z:0;s:0;e:Linear.easeNone;" data-style_hover="c:rgba(0, 0, 0, 1.00);bg:rgba(255, 255, 255, 1.00);bs:solid;bw:1px;cursor:pointer;" data-transform_in="y:[100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;opacity:0;s:2000;e:Power2.easeInOut;" data-transform_out="y:[100%];rZ:0deg;sX:0.7;sY:0.7;s:1000;e:Power3.easeInOut;s:1000;e:Power3.easeInOut;" data-mask_in="x:0px;y:[100%];s:inherit;e:inherit;" data-mask_out="x:0;y:0;s:inherit;e:inherit;" data-start="500" data-splitin="none" data-splitout="none" data-responsive_offset="on" data-responsive="off" style="background-color:#EC8ABA;">
 													shop
 												</div>
  
-												<div class="tp-caption home1-primary tp-resizeme" data-x="427" data-y="261" data-width="['auto']" data-height="['auto']" data-transform_idle="o:1;" data-transform_in="y:[100%];z:0;rZ:-35deg;sX:1;sY:1;skX:0;skY:0;s:2000;e:Power4.easeInOut;" data-transform_out="y:[100%];rZ:0deg;sX:0.7;sY:0.7;s:1000;e:Power3.easeInOut;s:1000;e:Power3.easeInOut;" data-mask_in="x:0px;y:0px;s:inherit;e:inherit;" data-mask_out="x:0;y:0;s:inherit;e:inherit;" data-start="500" data-splitin="chars" data-splitout="none" data-responsive_offset="on" data-elementdelay="0.05">
+												<div class="tp-caption home1-primary tp-resizeme" data-x="427" data-y="261" data-width="['auto']" data-height="['auto']" data-transform_idle="o:1;" data-transform_in="y:[100%];z:0;rZ:-35deg;sX:1;sY:1;skX:0;skY:0;s:2000;e:Power4.easeInOut;" data-transform_out="y:[100%];rZ:0deg;sX:0.7;sY:0.7;s:1000;e:Power3.easeInOut;s:1000;e:Power3.easeInOut;" data-mask_in="x:0px;y:0px;s:inherit;e:inherit;" data-mask_out="x:0;y:0;s:inherit;e:inherit;" data-start="500" data-splitin="chars" data-splitout="none" data-responsive_offset="on" data-elementdelay="0.05" style="color:#313131;">
 													chez Animalia !
 												</div>
  
@@ -144,7 +96,7 @@
 													the best products 2015
 												</div>
  
-												<div class="tp-caption primary-button rev-btn" data-x="610" data-y="402" data-width="['auto']" data-height="['auto']" data-transform_idle="o:1;" data-transform_hover="o:1;rX:0;rY:0;rZ:0;z:0;s:0;e:Linear.easeNone;" data-style_hover="c:rgba(0, 0, 0, 1.00);bg:rgba(255, 255, 255, 1.00);bs:solid;bw:1px;cursor:pointer;" data-transform_in="z:0;rX:0;rY:0;rZ:0;sX:0.8;sY:0.8;skX:0;skY:0;opacity:0;s:1500;e:Power4.easeOut;" data-transform_out="y:[100%];rZ:0deg;sX:0.7;sY:0.7;s:1000;e:Power3.easeInOut;s:1000;e:Power3.easeInOut;" data-mask_out="x:0;y:0;s:inherit;e:inherit;" data-start="500" data-splitin="none" data-splitout="none" data-responsive_offset="on" data-responsive="off">
+												<div class="tp-caption primary-button rev-btn" data-x="610" data-y="402" data-width="['auto']" data-height="['auto']" data-transform_idle="o:1;" data-transform_hover="o:1;rX:0;rY:0;rZ:0;z:0;s:0;e:Linear.easeNone;" data-style_hover="c:rgba(0, 0, 0, 1.00);bg:rgba(255, 255, 255, 1.00);bs:solid;bw:1px;cursor:pointer;" data-transform_in="z:0;rX:0;rY:0;rZ:0;sX:0.8;sY:0.8;skX:0;skY:0;opacity:0;s:1500;e:Power4.easeOut;" data-transform_out="y:[100%];rZ:0deg;sX:0.7;sY:0.7;s:1000;e:Power3.easeInOut;s:1000;e:Power3.easeInOut;" data-mask_out="x:0;y:0;s:inherit;e:inherit;" data-start="500" data-splitin="none" data-splitout="none" data-responsive_offset="on" data-responsive="off" style="background-color:#EC8ABA;">
 													shop now
 												</div>
  
@@ -219,14 +171,14 @@
 													<li class="product product-no-border style-2">
 														<div class="product-container">
 															<figure>
-																<div class="product-wrap">
+																<div class="product-wrap" style="cursor: pointer;">
 																	<div class="product-images">
-																		<span class="onsale">NEW!</span>
+																		<span class="onsale">Nouveau!</span>
 																		<div class="shop-loop-thumbnail shop-loop-front-thumbnail">
-																			<a href="<?php echo 'shop-detail.php?id='.$row['id'];?>"><img width="328" height="328" src="<?php echo 'admin/'.$row['image'];?>" alt=""/></a>
+																			<a href="<?php echo 'shop-detail.php?id='.$row['id'];?>"><img width="328" height="328" style="border-radius:7px;" src="<?php echo 'admin/'.$row['image'];?>" alt=""/></a>
 																		</div>
 																		<div class="shop-loop-thumbnail shop-loop-back-thumbnail">
-																			<a href="shop-detail-1.html"><img width="450" height="450" src="<?php echo 'admin/'.$row['image'];?>" alt=""/></a>
+																			<a href="shop-detail-1.html"><img width="450" height="450" style="border-radius:7px;opacity:.5;" src="<?php echo 'admin/'.$row['image'];?>" alt=""/></a>
 																		</div>
 																	</div>
 																</div>
@@ -234,13 +186,14 @@
 																	<div class="shop-loop-product-info">
 																		<div class="info-meta clearfix">
 																			<div class="star-rating">
-																				<span style="width:0%"></span>
+																				<span style="width:100%"></span>
 																			</div>
 																			<div class="loop-add-to-wishlist">
 																				<div class="yith-wcwl-add-to-wishlist">
 			                                                                        <div class="yith-wcwl-add-button">
-			                                                                            <a href="?favoris=<?php echo $row['id'];?>" class="add_to_wishlist">
-			                                                                                Add to Wishlist
+			                                                                            <a href="?favoris=<?php echo $row['id'];?>" class="add_to_wishlist" onmouseover="this.style.color='#EC8ABA'"onmouseout="this.style.color=''">
+																							Add to Wishlist
+																							<i class="fas fa-heart"></i>
 			                                                                            </a>
 			                                                                        </div>
 			                                                                    </div>
@@ -366,7 +319,7 @@
 								<div class="col-sm-12">
 									<div class="caroufredsel product-slider nav-position-center" data-height="variable" data-visible-min="1" data-responsive="1" data-infinite="1" data-autoplay="0">
 										<div class="product-slider-title">
-											<h3 class="el-heading">nouveaute</h3>
+											<h3 class="el-heading">Meilleurs produits</h3>
 										</div>
 										<div class="caroufredsel-wrap">
 											<div class="commerce columns-4">
@@ -379,14 +332,14 @@
 													<li class="product product-no-border style-2">
 														<div class="product-container">
 															<figure>
-																<div class="product-wrap">
+																<div class="product-wrap style="cursor: pointer;"">
 																	<div class="product-images">
-																		<span class="onsale">NEW!</span>
+																		<span class="onsale">&hearts;	</span>
 																		<div class="shop-loop-thumbnail shop-loop-front-thumbnail">
-																			<a href="<?php echo 'shop-detail.php?id='.$row['id'];?>"><img width="328" height="328" src="<?php echo 'admin/'.$row['image'];?>" alt=""/></a>
+																			<a href="<?php echo 'shop-detail.php?id='.$row['id'];?>"><img width="328" height="328" style="border-radius:7px;" src="<?php echo 'admin/'.$row['image'];?>" alt=""/></a>
 																		</div>
 																		<div class="shop-loop-thumbnail shop-loop-back-thumbnail">
-																			<a href="shop-detail-1.html"><img width="450" height="450" src="<?php echo 'admin/'.$row['image'];?>" alt=""/></a>
+																			<a href="shop-detail-1.html"><img width="450" height="450" style="border-radius:7px;opacity:.5;" src="<?php echo 'admin/'.$row['image'];?>" alt=""/></a>
 																		</div>
 																	</div>
 																</div>
@@ -394,12 +347,12 @@
 																	<div class="shop-loop-product-info">
 																		<div class="info-meta clearfix">
 																			<div class="star-rating">
-																				<span style="width:0%"></span>
+																				<span style="width:100%"></span>
 																			</div>
 																			<div class="loop-add-to-wishlist">
 																				<div class="yith-wcwl-add-to-wishlist">
 			                                                                        <div class="yith-wcwl-add-button">
-			                                                                            <a href="?favoris=<?php echo $row['id'];?>" class="add_to_wishlist">
+			                                                                            <a href="?favoris=<?php echo $row['id'];?>" class="add_to_wishlist" onmouseover="this.style.color='#EC8ABA'"onmouseout="this.style.color=''">
 			                                                                                Add to Wishlist
 			                                                                            </a>
 			                                                                        </div>
@@ -444,144 +397,6 @@
 
 
 
-
-
-
-			<footer id="footer" class="footer">
-				<div class="footer-newsletter">
-					<div class="container">
-						<div class="footer-newsletter-wrap">
-							<h3 class="footer-newsletter-heading">NEWSLETTER</h3>
-							<form class="mailchimp-form">
-								<div class="mailchimp-form-content clearfix">
-									<label for="subscribe_email" class="hide">Subscribe</label>
-									<input type="email" id="subscribe_email" class="form-control" required="required" placeholder="Enter your email..." name="email">
-									<button type="submit" class="btn mailchimp-submit">sign up</button>
-								</div>
-							</form>
-						</div>
-					</div>
-				</div>
-				<div class="footer-featured">
-					<div class="container">
-						<div class="row">
-							<div class="footer-featured-col col-md-4 col-sm-6">
-								<i class="fa fa-money"></i>
-								<h4 class="footer-featured-title">
-									100% <br> return money
-								</h4>
-								free return standard order in 30 days 
-							</div>
-							<div class="footer-featured-col col-md-4 col-sm-6">
-								<i class="fa fa-globe"></i>
-								<h4 class="footer-featured-title">
-									world wide <br> delivery
-								</h4>
-								free ship for payment over $100
-							</div>
-							<div class="footer-featured-col col-md-4 col-sm-6">
-								<i class="fa fa-clock-o"></i>
-								<h4 class="footer-featured-title">
-									24h <br> shipment 
-								</h4>
-								for standard package 
-							</div>
-						</div>
-					</div>
-				</div>
-				<div class="footer-widget">
-					<div class="container">
-						<div class="footer-widget-wrap">
-							<div class="row">
-								<div class="footer-widget-col col-md-3 col-sm-6">
-									<div class="widget widget_text">
-										<div class="textwidget">
-											<ul class="address">
-												<li>
-													<i class="fa fa-home"></i>
-													<h4>Address:</h4>
-													<p>132 Jefferson Avenue, Suite 22, Redwood City, CA 94872, USA</p>
-												</li>
-												<li>
-													<i class="fa fa-mobile"></i>
-													<h4>Phone:</h4>
-													<p>(00) 123 456 789</p>
-												</li>
-												<li>
-													<i class="fa fa-envelope"></i>
-													<h4>Email:</h4>
-													<p><a href="mailto:email@domain.com">email@domain.com</a></p>
-												</li>
-											</ul>
-										</div>
-									</div>
-								</div>
-								<div class="footer-widget-col col-md-3 col-sm-6">
-									<div class="widget widget_nav_menu">
-										<h3 class="widget-title">
-											<span>infomation</span>
-										</h3>
-										<div class="menu-infomation-container">
-											<ul class="menu">
-												<li><a href="#">About Us</a></li>
-												<li><a href="#">Contact Us</a></li>
-												<li><a href="#">Term &#038; Conditions</a></li>
-												<li><a href="#">Gift Voucher</a></li>
-												<li><a href="#">BestSellers</a></li>
-											</ul>
-										</div>
-									</div>
-								</div>
-								<div class="footer-widget-col col-md-3 col-sm-6">
-									<div class="widget widget_nav_menu">
-										<h3 class="widget-title">
-											<span>Customer Care</span>
-										</h3>
-										<div class="menu-customer-care-container">
-											<ul class="menu">
-												<li><a href="#">Support</a></li>
-												<li><a href="#">Sitemap</a></li>
-												<li><a href="#">FAQ</a></li>
-												<li><a href="#">Shipping</a></li>
-												<li><a href="#">Returns</a></li>
-											</ul>
-										</div>
-									</div>
-								</div>
-								<div class="footer-widget-col col-md-3 col-sm-6">
-									<div class="widget widget_text">
-										<h3 class="widget-title">
-											<span>open house</span>
-										</h3>
-										<div class="textwidget">
-											<ul class="open-time">
-												<li><span>Mon - Fri:</span><span>8am - 5pm</span> </li>
-												<li><span>Sat:</span><span>8am - 11am</span> </li>
-												<li><span>Sun: </span><span>Closed</span></li>
-											</ul>
-											<h3 class="widget-title">
-												<span>payment Menthod</span>
-											</h3>
-											<div class="payment">
-												<a href="#"><i class="fa fa-cc-mastercard"></i></a>
-												<a href="#"><i class="fa fa-cc-visa"></i></a>
-												<a href="#"><i class="fa fa-cc-paypal"></i></a>
-												<a href="#"><i class="fa fa-cc-discover"></i></a>
-												<a href="#"><i class="fa fa-credit-card"></i></a>
-												<a href="#"><i class="fa fa-cc-amex"></i></a>
-											</div>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-				<div class="footer-copyright text-center">
-					© 2015 WOOW - Responsive Commerce Theme
-				</div>
-			</footer>
-		</div>
 
 
 		<?php 
@@ -685,57 +500,9 @@
 					</form>
 				</div>
 			</div>
-		</div>
-		<?php } ?>
-		<div class="minicart-side">
-			<div class="minicart-side-title">
-				<h4>Shopping Cart</h4>
 			</div>
-			<div class="minicart-side-content">
-				<div class="minicart">
-					<div class="minicart-header no-items show">
-						Your shopping bag is empty.
-					</div>
-					<div class="minicart-footer">
-						<div class="minicart-actions clearfix">
-							<a class="button no-item-button" href="#">
-								<span class="text">Go to the shop</span>
-							</a>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
+		<?php } include("footer.php");?>
 
-		<script type='text/javascript' src='js/jquery.js'></script>
-		<script type='text/javascript' src='js/jquery-migrate.min.js'></script>
-		<script type='text/javascript' src='js/jquery.themepunch.tools.min.js'></script>
-		<script type='text/javascript' src='js/jquery.themepunch.revolution.min.js'></script>
-		<script type='text/javascript' src='js/easing.min.js'></script>
-		<script type='text/javascript' src='js/imagesloaded.pkgd.min.js'></script>
-		<script type='text/javascript' src='js/bootstrap.min.js'></script>
-		<script type='text/javascript' src='js/superfish-1.7.4.min.js'></script>
-		<script type='text/javascript' src='js/jquery.appear.min.js'></script>
-		<script type='text/javascript' src='js/script.js'></script>
-		<script type='text/javascript' src='js/swatches-and-photos.js'></script>
-		<script type='text/javascript' src='js/jquery.cookie.min.js'></script>
-		<script type='text/javascript' src='js/jquery.prettyPhoto.js'></script>
-		<script type='text/javascript' src='js/jquery.prettyPhoto.init.min.js'></script>
-		<script type='text/javascript' src='js/jquery.selectBox.min.js'></script>
-		<script type='text/javascript' src='js/jquery.touchSwipe.min.js'></script>
-		<script type='text/javascript' src='js/jquery.transit.min.js'></script>
-		<script type='text/javascript' src='js/jquery.carouFredSel.js'></script>
-		<script type='text/javascript' src='js/jquery.magnific-popup.js'></script>
-		<script type='text/javascript' src='js/isotope.pkgd.min.js'></script>
-
-		<script type='text/javascript' src='js/extensions/revolution.extension.video.min.js'></script>
-		<script type='text/javascript' src='js/extensions/revolution.extension.slideanims.min.js'></script>
-		<script type='text/javascript' src='js/extensions/revolution.extension.actions.min.js'></script>
-		<script type='text/javascript' src='js/extensions/revolution.extension.layeranimation.min.js'></script>
-		<script type='text/javascript' src='js/extensions/revolution.extension.kenburn.min.js'></script>
-		<script type='text/javascript' src='js/extensions/revolution.extension.navigation.min.js'></script>
-		<script type='text/javascript' src='js/extensions/revolution.extension.migration.min.js'></script>
-		<script type='text/javascript' src='js/extensions/revolution.extension.parallax.min.js'></script>
 
 		<script type="text/javascript">
 

@@ -37,6 +37,58 @@
 				</nav>
 			</div>
 		</div>
+		<?php
+				
+				if(!(isset($_SESSION['username']))) { ?>
+						<div class="topbar">
+							<div class="container topbar-wap">
+								<div class="row">
+									<div class="col-sm-6 col-left-topbar">
+										<div class="left-topbar">
+											connecte vous pour commander
+											<a href="#"><i class="fa fa-long-arrow-right"></i></a>
+										</div>
+									</div>
+									<div class="col-sm-6 col-right-topbar">
+										<div class="right-topbar">
+											<div class="user-login">
+												<ul class="nav top-nav">
+													<li><a data-rel="loginModal" href="#"> conneter </a></li>
+												</ul>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<?php }else{ ?>
+							<div class="topbar">
+							<div class="container topbar-wap">
+								<div class="row">
+									<div class="col-sm-6 col-left-topbar">
+										<div class="left-topbar">
+										vous ete connecter autant que <?php echo $_SESSION['username'];?>
+											<a href="#"><i class="fa fa-long-arrow-right"></i></a>
+										</div>
+									</div>
+									<div class="col-sm-6 col-right-topbar">
+										<div class="right-topbar">
+											<div class="user-login">
+												<ul class="nav top-nav">
+													<li><a href="?logout"> deconneter </a></li>
+												</ul>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div> <?php }
+						if(isset($_REQUEST['logout'])){
+							session_destroy();
+							echo "<script>window.location = window.location.pathname;</script>";
+							
+						}
+						?>
 		<div id="wrapper" class="wide-wrap">
 			<div class="offcanvas-overlay"></div>
 			<header class="header-container header-type-classic header-navbar-classic header-scroll-resize">
@@ -149,15 +201,21 @@
 													</a>
 													<div class="search-form-wrap show-popup hide"></div>
 												</div>
-												<div class="navbar-minicart navbar-minicart-topbar">
-													<div class="navbar-minicart">
-														<a class="minicart-link" href="#">
+
+												<?php 
+
+
+
+$pcore=new produitC();
+$nombre=$pcore->compterArticles();
+ ?>
+												<div class="navbar-minicart ">
+														<a class="wishlist" href="cart.php">
 															<span class="minicart-icon">
 																<i class="fa fa-shopping-cart"></i>
-																<span>0</span>
+																<span><?php echo $nombre; ?></span>
 															</span>
 														</a>
-													</div>
 												</div>
 												<div class="navbar-wishlist">
 													<a class="wishlist" href="wishlist.php">
@@ -225,6 +283,8 @@
 					</div>
 				</div>
 			</header>
+
+			
 
 			
 		<!-- Sweet-Alert  -->

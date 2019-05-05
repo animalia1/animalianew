@@ -1,11 +1,11 @@
-<footer id="footer" class="footer">
+<footer id="footer" class="footer" >
 				<div class="footer-newsletter">
 					<div class="container">
 						<div class="footer-newsletter-wrap">
 							<h3 class="footer-newsletter-heading">NEWSLETTER</h3>
 							<form class="mailchimp-form">
 								<div class="mailchimp-form-content clearfix">
-									<label for="subscribe_email" class="hide">Subscribe</label>
+									<label for="subscribe_email" class="hide">Sinscrire</label>
 									<input type="email" id="subscribe_email" class="form-control" required="required" placeholder="Enter your email..." name="email">
 									<button type="submit" class="btn mailchimp-submit">sign up</button>
 								</div>
@@ -13,33 +13,7 @@
 						</div>
 					</div>
 				</div>
-				<div class="footer-featured">
-					<div class="container">
-						<div class="row">
-							<div class="footer-featured-col col-md-4 col-sm-6">
-								<i class="fa fa-money"></i>
-								<h4 class="footer-featured-title">
-									100% <br> return money
-								</h4>
-								free return standard order in 30 days 
-							</div>
-							<div class="footer-featured-col col-md-4 col-sm-6">
-								<i class="fa fa-globe"></i>
-								<h4 class="footer-featured-title">
-									world wide <br> delivery
-								</h4>
-								free ship for payment over $100
-							</div>
-							<div class="footer-featured-col col-md-4 col-sm-6">
-								<i class="fa fa-clock-o"></i>
-								<h4 class="footer-featured-title">
-									24h <br> shipment 
-								</h4>
-								for standard package 
-							</div>
-						</div>
-					</div>
-				</div>
+				
 				<div class="footer-widget">
 					<div class="container">
 						<div class="footer-widget-wrap">
@@ -129,148 +103,18 @@
 					</div>
 				</div>
 				<div class="footer-copyright text-center">
-					© 2015 WOOW - Responsive Commerce Theme
+					© 2019 Animalia 
 				</div>
 			</footer>
 		</div>
 
-		<div class="modal fade user-login-modal" id="userloginModal" tabindex="-1" role="dialog" aria-hidden="true">
-			<div class="modal-dialog">
-				<div class="modal-content">
-					<form id="userloginModalForm">
-						<div class="modal-header">
-							<button type="button" class="close" data-dismiss="modal">
-								<span aria-hidden="true">&times;</span><span class="sr-only">Close</span>
-							</button>
-							<h4 class="modal-title">Login</h4>
-						</div>
-						<div class="modal-body">
-							<div class="user-login-facebook">
-								<button class="btn-login-facebook" type="button">
-									<i class="fa fa-facebook"></i>Sign in with Facebook
-								</button>
-							</div>
-							<div class="user-login-or"><span>or</span></div>
-							<div class="form-group">
-								<label>Username</label>
-								<input type="text" id="username" name="log" required class="form-control" value="" placeholder="Username">
-							</div>
-							<div class="form-group">
-								<label for="password">Password</label>
-								<input type="password" id="password" required value="" name="pwd" class="form-control" placeholder="Password">
-							</div>
-							<div class="checkbox clearfix">
-								<label class="form-flat-checkbox pull-left">
-									<input type="checkbox" name="rememberme" id="rememberme" value="forever">
-									<i></i>&nbsp;Remember Me
-								</label>
-								<span class="lostpassword-modal-link pull-right">
-									<a href="#lostpasswordModal" data-rel="lostpasswordModal">Lost your password?</a>
-								</span>
-							</div>
-						</div>
-						<div class="modal-footer">
-							<span class="user-login-modal-register pull-left">
-								<a data-rel="registerModal" href="#">Not a Member yet?</a>
-							</span>
-							<button type="submit" class="btn btn-default btn-outline">Sign in</button>
-						</div>
-					</form>
-				</div>
-			</div>
-		</div>
-		<div class="modal fade user-register-modal" id="userregisterModal" tabindex="-1" role="dialog" aria-hidden="true">
-			<div class="modal-dialog">
-				<div class="modal-content">
-					<form id="userregisterModalForm">
-						<div class="modal-header">
-							<button type="button" class="close" data-dismiss="modal">
-								<span aria-hidden="true">&times;</span><span class="sr-only">Close</span>
-							</button>
-							<h4 class="modal-title">Register account</h4>
-						</div>
-						<div class="modal-body">
-							<div class="user-login-facebook">
-								<button class="btn-login-facebook" type="button">
-									<i class="fa fa-facebook"></i>Sign in with Facebook
-								</button>
-							</div>
-							<div class="user-login-or"><span>or</span></div>
-							<div class="form-group">
-								<label>Username</label>
-								<input type="text" name="user_login" required class="form-control" value="" placeholder="Username">
-							</div>
-							<div class="form-group">
-								<label for="user_email">Email</label>
-								<input type="email" id="user_email" name="user_email" required class="form-control" value="" placeholder="Email">
-							</div>
-							<div class="form-group">
-								<label for="user_password">Password</label>
-								<input type="password" id="user_password" required value="" name="user_password" class="form-control" placeholder="Password">
-							</div>
-							<div class="form-group">
-								<label for="user_password">Retype password</label>
-								<input type="password" id="cuser_password" required value="" name="cuser_password" class="form-control" placeholder="Retype password">
-							</div>
-						</div>
-						<div class="modal-footer">
-							<span class="user-login-modal-link pull-left">
-								<a data-rel="loginModal" href="#loginModal">Already have an account?</a>
-							</span>
-							<button type="submit" class="btn btn-default btn-outline">Register</button>
-						</div>
-					</form>
-				</div>
-			</div>
-		</div>
-		<div class="modal fade user-lostpassword-modal" id="userlostpasswordModal" tabindex="-1" role="dialog" aria-hidden="true">
-			<div class="modal-dialog">
-				<div class="modal-content">
-					<form id="userlostpasswordModalForm">
-						<div class="modal-header">
-							<button type="button" class="close" data-dismiss="modal">
-								<span aria-hidden="true">&times;</span><span class="sr-only">Close</span>
-							</button>
-							<h4 class="modal-title">Forgot Password</h4>
-						</div>
-						<div class="modal-body">
-							<div class="form-group">
-								<label>Username or E-mail:</label>
-								<input type="text" name="user_login" required class="form-control" value="" placeholder="Username or E-mail">
-							</div>
-						</div>
-						<div class="modal-footer">
-							<span class="user-login-modal-link pull-left">
-								<a data-rel="loginModal" href="#loginModal">Already have an account?</a>
-							</span>
-							<button type="submit" class="btn btn-default btn-outline">Sign in</button>
-						</div>
-					</form>
-				</div>
-			</div>
-		</div>
-		<div class="minicart-side">
-			<div class="minicart-side-title">
-				<h4>Shopping Cart</h4>
-			</div>
-			<div class="minicart-side-content">
-				<div class="minicart">
-					<div class="minicart-header no-items show">
-						Your shopping bag is empty.
-					</div>
-					<div class="minicart-footer">
-						<div class="minicart-actions clearfix">
-							<a class="button no-item-button" href="#">
-								<span class="text">Go to the shop</span>
-							</a>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
+		
 
 		
 </footer>
+
+</div>
+
         
         <!-- jQuery -->
     <script src="../vendors/bower_components/jquery/dist/jquery.min.js"></script>
@@ -314,4 +158,17 @@
 		<script type='text/javascript' src='js/jquery.transit.min.js'></script>
 		<script type='text/javascript' src='js/jquery.carouFredSel.js'></script>
 		<script type='text/javascript' src='js/jquery.magnific-popup.js'></script>
-        <script type='text/javascript' src='js/isotope.pkgd.min.js'></script>
+		<script type='text/javascript' src='js/isotope.pkgd.min.js'></script>
+		
+		
+		<script type='text/javascript' src='js/jquery.themepunch.tools.min.js'></script>
+		<script type='text/javascript' src='js/jquery.themepunch.revolution.min.js'></script>
+
+		<script type='text/javascript' src='js/extensions/revolution.extension.video.min.js'></script>
+		<script type='text/javascript' src='js/extensions/revolution.extension.slideanims.min.js'></script>
+		<script type='text/javascript' src='js/extensions/revolution.extension.actions.min.js'></script>
+		<script type='text/javascript' src='js/extensions/revolution.extension.layeranimation.min.js'></script>
+		<script type='text/javascript' src='js/extensions/revolution.extension.kenburn.min.js'></script>
+		<script type='text/javascript' src='js/extensions/revolution.extension.navigation.min.js'></script>
+		<script type='text/javascript' src='js/extensions/revolution.extension.migration.min.js'></script>
+		<script type='text/javascript' src='js/extensions/revolution.extension.parallax.min.js'></script>

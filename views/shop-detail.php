@@ -105,9 +105,12 @@
 															<?php echo $produit['description'];?>
 															</p>
 														</div>
-														<form class="cart">
+														<form class="cart" action="admin/traitementCommande.php">
 															<div class="add-to-cart-table">
 																<div class="quantity">
+																<input type="hidden"  name="id" value="<?php echo $_REQUEST['id'] ?>" title="Qty" />
+																<input type="hidden"  name="price" value="<?php echo $produit['price'] ?>" />
+
 																	<input type="number" step="1" min="1" name="quantity" value="1" title="Qty" class="input-text qty text" size="4"/>
 																</div>
 																<button type="submit" class="button">Add to cart</button>

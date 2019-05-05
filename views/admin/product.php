@@ -65,7 +65,7 @@
 									<article class="col-item">
 										<div class="photo">
 											<div class="options">
-												<a href="add-products.php?edit=<?php echo $row['id']?>" class="font-18 txt-grey mr-10 pull-left"><i class="zmdi zmdi-edit"></i></a>
+												<a href="add-products.php?edit=<?php echo $row['id'].'&type_animaux='.$row['type_animaux'];?>" class="font-18 txt-grey mr-10 pull-left"><i class="zmdi zmdi-edit"></i></a>
 												<a href="traitement2.php?delete=<?php echo $row['id']?>" class="font-18 txt-grey pull-left "><i class="zmdi zmdi-close"></i></a>
 											</div>
 											

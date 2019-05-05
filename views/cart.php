@@ -1,3 +1,5 @@
+<?php include_once ("../core/classpanier.php");
+$panier=creationPanier(); ?>
 <!doctype html>
 <html lang="en-US">
 	<head>
@@ -51,12 +53,14 @@
 						<div class="col-md-12">
 							<div class="main-content">
 								<div class="commerce">
-									<form>
+									<form >
 										<table class="table shop_table cart">
 											<thead>
 												<tr>
 													<th class="product-remove hidden-xs">&nbsp;</th>
 													<th class="product-thumbnail hidden-xs">&nbsp;</th>
+													<th class="product-thumbnail hidden-xs">&nbsp;</th>
+
 													<th class="product-name">Product</th>
 													<th class="product-price text-center">Price</th>
 													<th class="product-quantity text-center">Quantity</th>
@@ -73,42 +77,48 @@
 											
 															<?php
 
-include_once ("../core/commandeC.php");
-															$commande1=new commandeC();
+
+
+														//	$commande1=new commandeC();
 															$prixTotale =0;
-															$listeCommandes=$commande1->afficheCommande();
-																foreach($listeCommandes as $row){  
-	                             
+															$p=new produitC();
+															$listeproduits=$p->recupererProduitduPannier();
+																foreach($listeproduits as $row){  
+	 
 															?>
 												<tr class="cart_item">
 													<td class="product-remove hidden-xs">
-														<a href="admin/traitementCommande.php?supid=<?php echo $row['ligneid']?>" class="remove" title="Remove this item">&times;</a>
+														<a href="admin/traitementCommande.php?supid=<?=$row->id?>" class="remove" title="Remove this item">&times;</a>
+													</td>
+													<td class="update_cart">
+													<input type="button" onclick="window.location.href='admin/traitementCommande.php?modid=<?=$row->id?>&quantity=' + document.getElementById('<?=$row->id?>').value" class="button update-cart-button rounded" name="update_cart" value="Update Cart" />
 													</td>
 													<td class="product-thumbnail hidden-xs">
 														<a href="shop-detail-1.html">
-															<img width="100" height="150" src="<?php echo "admin/".$row['image'] ?>" alt="Product-2"/>
+															<img width="100" height="150" src="<?php echo "admin/".$row->image ?>" alt="Product-2"/>
 														</a>
 													</td>
 													<td class="product-name">
-														<a href="shop-detail-1.html"><?php echo $row['nom'] ?></a>
+														<a href="shop-detail-1.html"><?php echo $row->nom ?></a>
 													</td>
 													<td class="product-price text-center">
-														<span class="amount"><?php echo $row['price']." dt" ?></span>
+														<span class="amount"><?php echo $row->price." dt" ?></span>
 													</td>
 													<td class="product-quantity text-center">
+													<?php $pos=array_search($row->id,$_SESSION['panier']['id']); ?>
 														<div class="quantity">
-															<input type="number" step="1" min="0" id="quantity" name="quantity" value="<?php echo $row['quantity'] ?>" title="Qty" class="input-text qty text" size="4"/>
+															<input type="number" step="1" min="0" id="<?=$row->id ?>" name="quantity" value="<?= $_SESSION['panier']['quantity'][$pos];?>" title="Qty" class="input-text qty text" size="4"/>
 														</div>
 													</td>
 													<td class="product-subtotal hidden-xs text-center">
-														<span class="amount"><?php echo ($row['price'] * $row['quantity'])." dt" ?></span>
+														<span class="amount"><?php echo ($row->price * $_SESSION['panier']['quantity'][$pos])." dt" ?></span>
 													</td>
 												</tr>
 																	
 
 
-																<?php $prixTotale = $prixTotale +($row['price'] * $row['quantity']);
-																	 $prodid = $row['ligneid'];} ?>
+																<?php $prixTotale = $prixTotale +($row->price * $_SESSION['panier']['quantity'][$pos]);
+																	 } ?>
 
 
 
@@ -117,7 +127,7 @@ include_once ("../core/commandeC.php");
 
 
 												<tr>
-													<td colspan="6" class="actions">
+													<td colspan="8" class="actions">
 														<div class="coupon">
 															<label for="coupon_code">Coupon:</label> 
 															<input type="text" name="coupon_code" class="input-text" id="coupon_code" value="" placeholder="Coupon code"/> 
@@ -128,7 +138,7 @@ include_once ("../core/commandeC.php");
 														
 													
 															<p id="error" style="color:red;"></p>
-														<input type="button" onclick="window.location.href='admin/traitementCommande.php?qt=' + document.getElementById('quantity').value" class="button update-cart-button rounded" name="update_cart" value="Update Cart" />
+															
 														<input type="button"  class="button rounded" name="apply_coupon" value="Imprimer" onclick="imprimer()"/>	
 													</td>
 												</tr>
@@ -147,8 +157,18 @@ include_once ("../core/commandeC.php");
 												<tr class="Promotion">
 													<th>coupon</th>
 													<td><span class="amount"><?php if(isset($_REQUEST['coupon']) and $_REQUEST['coupon'] != 0){
+														
+include_once ("../core/couponC.php");
+														/*$pcore=new couponC();
+														$nb=$pcore->Nombrecoupon();
+														foreach ($nb as $value) {
+														# code...
+														$nombre=$value['nb'];
+														}*/
   														$prixTotale = $prixTotale - (($prixTotale * $_REQUEST['coupon']) / 100);
- 														echo $_REQUEST['coupon']."%" ;} ?></span></td>
+														 echo $_REQUEST['coupon']."%" ;
+														// echo $nombre;}
+													 } ?></span></td>
 												</tr>
 												<tr class="order-total">
 													<th>Total</th>
@@ -156,7 +176,7 @@ include_once ("../core/commandeC.php");
 												</tr>
 											</table>
 											<div class="wc-proceed-to-checkout">
-												<a href="#" class="checkout-button button alt wc-forward rounded">Proceed to Checkout</a>
+												<a href="traitementpanier.php" class="checkout-button button alt wc-forward rounded">Proceed to Checkout</a>
 											</div>
 										</div>
 									

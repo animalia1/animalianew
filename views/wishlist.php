@@ -35,174 +35,35 @@
 	</head>
 	<body onload="script();">
 	<?php 
-				session_start(); ?>
-		<div class="modal fade user-login-modal" id="userloginModal" tabindex="-1" role="dialog" aria-hidden="true">
-			<div class="modal-dialog">
-				<div class="modal-content">
-					<form id="userloginModalForm"  methode="get" action="login.php">
-						<div class="modal-header">
-							<button type="button" class="close" data-dismiss="modal">
-								<span aria-hidden="true">&times;</span><span class="sr-only">Close</span>
-							</button>
-							<h4 class="modal-title">Login</h4>
-						</div>
-						<div class="modal-body">
-							<div class="user-login-facebook">
-								<button class="btn-login-facebook" type="button">
-									<i class="fa fa-facebook"></i>Sign in with Facebook
-								</button>
-							</div>
-							<div class="user-login-or"><span>or</span></div>
-							<div class="form-group">
-								<label>Username</label>
-								<input type="text" id="username" name="username" required class="form-control" value="" placeholder="Username">
-							</div>
-							<div class="form-group">
-								<label for="password">Password</label>
-								<input type="password" id="password" required value="" name="password" class="form-control" placeholder="Password">
-							</div>
-							<div class="checkbox clearfix">
-								<label class="form-flat-checkbox pull-left">
-									<input type="checkbox" name="rememberme" id="rememberme" value="forever">
-									<i></i>&nbsp;Remember Me
-								</label>
-								<span class="lostpassword-modal-link pull-right">
-									<a href="#lostpasswordModal" data-rel="lostpasswordModal">Lost your password?</a>
-								</span>
-							</div>
-						</div>
-						<div class="modal-footer">
-							<span class="user-login-modal-register pull-left">
-								<a data-rel="registerModal" href="#">Not a Member yet?</a>
-							</span>
-							<button type="submit" class="btn btn-default btn-outline">Sign in</button>
-						</div>
-					</form>
-				</div>
-			</div>
-		</div>
-		<div class="modal fade user-register-modal" id="userregisterModal" tabindex="-1" role="dialog" aria-hidden="true">
-			<div class="modal-dialog">
-				<div class="modal-content">
-					<form id="userregisterModalForm" methode="get" action="register.php" >
-						<div class="modal-header">
-							<button type="button" class="close" data-dismiss="modal">
-								<span aria-hidden="true">&times;</span><span class="sr-only">Close</span>
-							</button>
-							<h4 class="modal-title">Register account</h4>
-						</div>
-						<div class="modal-body">
-							<div class="user-login-facebook">
-								<button class="btn-login-facebook" type="button">
-									<i class="fa fa-facebook"></i>Sign in with Facebook
-								</button>
-							</div>
-							<div class="user-login-or"><span>or</span></div>
-							<div class="form-group">
-								<label>Username</label>
-								<input type="text" name="username" required class="form-control" value="" placeholder="Username">
-							</div>
-							<div class="form-group">
-								<label for="user_email">Email</label>
-								<input type="email" id="email" name="email" required class="form-control" value="" placeholder="Email">
-							</div>
-							<div class="form-group">
-								<label for="user_password">Password</label>
-								<input type="password" id="password1" required value="" name="password1" class="form-control" placeholder="Password">
-							</div>
-							<div class="form-group">
-								<label for="user_password">Retype password</label>
-								<input type="password" id="password2" required value="" name="password2" class="form-control" placeholder="Retype password">
-							</div>
-						</div>
-						<div class="modal-footer">
-							<span class="user-login-modal-link pull-left">
-								<a data-rel="loginModal" href="#loginModal">Already have an account?</a>
-							</span>
-							<button type="submit" class="btn btn-default btn-outline">Register</button>
-						</div>
-					</form>
-				</div>
-			</div>
-		</div>
-		<div class="modal fade user-lostpassword-modal" id="userlostpasswordModal" tabindex="-1" role="dialog" aria-hidden="true">
-			<div class="modal-dialog">
-				<div class="modal-content">
-					<form id="userlostpasswordModalForm">
-						<div class="modal-header">
-							<button type="button" class="close" data-dismiss="modal">
-								<span aria-hidden="true">&times;</span><span class="sr-only">Close</span>
-							</button>
-							<h4 class="modal-title">Forgot Password</h4>
-						</div>
-						<div class="modal-body">
-							<div class="form-group">
-								<label>Username or E-mail:</label>
-								<input type="text" name="user_login" required class="form-control" value="" placeholder="Username or E-mail">
-							</div>
-						</div>
-						<div class="modal-footer">
-							<span class="user-login-modal-link pull-left">
-								<a data-rel="loginModal" href="#loginModal">Already have an account?</a>
-							</span>
-							<button type="submit" class="btn btn-default btn-outline">Sign in</button>
-						</div>
-					</form>
-				</div>
-			</div>
-		</div>
-	<?php
-				
-				if(!(isset($_SESSION['username']))) { ?>
-						<div class="topbar">
-							<div class="container topbar-wap">
-								<div class="row">
-									<div class="col-sm-6 col-left-topbar">
-										<div class="left-topbar">
-											connecte vous pour commander
-											<a href="#"><i class="fa fa-long-arrow-right"></i></a>
-										</div>
-									</div>
-									<div class="col-sm-6 col-right-topbar">
-										<div class="right-topbar">
-											<div class="user-login">
-												<ul class="nav top-nav">
-													<li><a data-rel="loginModal" href="#"> conneter </a></li>
-												</ul>
-											</div>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-						<?php } ?>
 		
-		<?php
-			include ('header.php');
-			include ('selectLivreur.php');
-			$livreurid= selectlivreur();
-		?>
-		
+		session_start();
+
+include ('header.php');
+include ('selectLivreur.php');
+if(!(isset($_SESSION['username']))){
+echo "<script>window.location.href= 'index.php';</script>";
+}?>
+	
 
                         <!--shipping rami work-->
 						
-			<div class="content-container">
+			<div class="content-container" style="margin-top:-20px;">
 				<div class="container">
 						<div class="row row-fluid">
-						<div class="col-md-12">
+						<div class="col-md-12 mb-2">
 							<div class="main-content">
 								<form class="commerce">
 									<div class="wishlist-title ">
-										<h2>My wishlist on WooW</h2>
+										<h2>Mes Produits Favoris</h2>
 									</div>
-									<table class="shop_table cart wishlist_table">
+									<table class="shop_table cart wishlist_table mt-40">
 										<thead>
 											<tr>
 												<th class="product-remove"></th>
 												<th class="product-thumbnail"></th>
-												<th class="product-name"><span class="nobr">Product Name</span></th>
-												<th class="product-price"><span class="nobr">Unit Price </span></th>
-												<th class="product-stock-stauts"><span class="nobr">Stock Status </span></th>
+												<th class="product-name"><span class="nobr">Nom de produit</span></th>
+												<th class="product-price"><span class="nobr">Prix unitaire </span></th>
+												<th class="product-stock-stauts"><span class="nobr">Stock </span></th>
 												<th class="product-add-to-cart"></th>
 											</tr>
 										</thead>
@@ -251,16 +112,13 @@
 						</div>
 					</div>
 				</div>
-			</div>
 
 
 			<?php
 				include ('footer.php');
 			?>
 
-	</div>
-	</div>
-	</div>
+	
 
 
 

@@ -3,7 +3,7 @@
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
 		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"/>
-		<title>404 - Page not found | HTML Commerce Template</title>
+		<title>livraison</title>
 		<link rel="shortcut icon" href="images/favicon.ico">
 
 
@@ -32,9 +32,13 @@
 	</head>
 	<body onload="script();">
 	<?php 
-				session_start(); 
+		
+		session_start();
+
+			include ('header.php');
+			include ('selectLivreur.php');
 		if(!(isset($_SESSION['username']))){
-			header ('location: index.php');
+			echo "<script>window.location.href= 'index.php';</script>";
 		}?>
 		<div class="modal fade user-login-modal" id="userloginModal" tabindex="-1" role="dialog" aria-hidden="true">
 			<div class="modal-dialog">
@@ -151,43 +155,17 @@
 				</div>
 			</div>
 		</div>
-	<?php
-				
-				if(!(isset($_SESSION['username']))) { ?>
-						<div class="topbar">
-							<div class="container topbar-wap">
-								<div class="row">
-									<div class="col-sm-6 col-left-topbar">
-										<div class="left-topbar">
-											connecte vous pour commander
-											<a href="#"><i class="fa fa-long-arrow-right"></i></a>
-										</div>
-									</div>
-									<div class="col-sm-6 col-right-topbar">
-										<div class="right-topbar">
-											<div class="user-login">
-												<ul class="nav top-nav">
-													<li><a data-rel="loginModal" href="#"> conneter </a></li>
-												</ul>
-											</div>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-						<?php } ?>
+	
 		
 		<?php
-			include ('header.php');
-			include ('selectLivreur.php');
 			$livreurid= selectlivreur();
 		?>
 		
 
                         <!--shipping rami work-->
-						<div class="content-container mt-0">
-				<div class="container ">
-					<div class="row mt-0">                
+<div class="content-container " style="margin-top:-20px;">
+<div class="container pb-40 ">
+<div class="row mt-0">                
 <h3><span class="number"><i class="icon-bag txt-black mr-10"></i></span><span class="head-font capitalize-font">shipping</span></h3>
 <fieldset>
 <form method="get" action="admin/traitement.php">
@@ -277,7 +255,6 @@
 
 					</div>
 				</div>
-			</div>
 			
 
 
@@ -286,9 +263,6 @@
 				include ('footer.php');
 			?>
 
-	</div>
-	</div>
-	</div>
 
 
 
