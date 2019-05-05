@@ -14,7 +14,7 @@
         $livraison = new Livraison($_REQUEST['first_name'],$_REQUEST['last_name'],$_REQUEST['address'],$_REQUEST['phone_number'],$_REQUEST['prix'],$_REQUEST['orderid'],$_REQUEST['date'],"pending",$_REQUEST['zip_code'],$_REQUEST['livreurid']);
         LivraisonC::ajouterLivraison($livraison,$_REQUEST['idclient']);
         incLivreur($_REQUEST['livreurid'],$_REQUEST['livreurdispo']);
-                $url = '../shipping.php?ajout=1'; }
+                $url = '../index.php'; }
     }
 
     if(isset($_REQUEST['name']) and isset($_REQUEST['emailAddress']) and isset($_REQUEST['phoneNumber']) and isset($_REQUEST['adresse']) and isset($_REQUEST['code']) and isset($_REQUEST['date']) and isset($_REQUEST['salary']) ){
