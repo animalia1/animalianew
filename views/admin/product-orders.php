@@ -1,29 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8" />
-	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-	<title>Winkle I Fast build Admin dashboard for any platform</title>
-	<meta name="description" content="Winkle is a Dashboard & Admin Site Responsive Template by hencework." />
-	<meta name="keywords" content="admin, admin dashboard, admin template, cms, crm, Winkle Admin, Winkleadmin, premium admin templates, responsive admin, sass, panel, software, ui, visualization, web app, application" />
-	<meta name="author" content="hencework"/>
-	
-	<!-- Favicon -->
-	<link rel="shortcut icon" href="favicon.ico">
-	<link rel="icon" href="favicon.ico" type="image/x-icon">
 
-	<!-- vector map CSS -->
-	<link href="../../vendors/vectormap/jquery-jvectormap-2.0.2.css" rel="stylesheet" type="text/css"/>
-	
-	<!-- Custom Fonts -->
-    <link href="../dist/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-    
-	<!-- Data table CSS -->
-	<link href="../../vendors/bower_components/datatables/media/css/jquery.dataTables.min.css" rel="stylesheet" type="text/css"/>
-	
-	<!-- Custom CSS -->
-	<link href="../dist/css/style.css" rel="stylesheet" type="text/css">
-</head>
 
 <body>
 <?php include ('header.php');
@@ -612,39 +589,7 @@ include ("../../config.php");
 	
 	<!-- JavaScript -->
 	
-    <!-- jQuery -->
-    <script src="../../vendors/bower_components/jquery/dist/jquery.min.js"></script>
 
-    <!-- Bootstrap Core JavaScript -->
-    <script src="../../vendors/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
-    
-	<!-- Data table JavaScript -->
-	<script src="../../vendors/bower_components/datatables/media/js/jquery.dataTables.min.js"></script>
-	<script src="../../vendors/bower_components/datatables.net-buttons/js/dataTables.buttons.min.js"></script>
-	<script src="../../vendors/bower_components/datatables.net-buttons/js/buttons.flash.min.js"></script>
-	<script src="../../vendors/bower_components/jszip/dist/jszip.min.js"></script>
-	<script src="../../vendors/bower_components/pdfmake/build/pdfmake.min.js"></script>
-	<script src="../../vendors/bower_components/pdfmake/build/vfs_fonts.js"></script>
-	
-	<script src="../../vendors/bower_components/datatables.net-buttons/js/buttons.html5.min.js"></script>
-	<script src="../../vendors/bower_components/datatables.net-buttons/js/buttons.print.min.js"></script>
-	<script src="../dist/js/export-table-data.js"></script>
-	
-	<!-- Slimscroll JavaScript -->
-	<script src="../dist/js/jquery.slimscroll.js"></script>
-	
-	<!-- Owl JavaScript -->
-	<script src="../../vendors/bower_components/owl.carousel/dist/owl.carousel.min.js"></script>
-	
-	<!-- Switchery JavaScript -->
-	<script src="../../vendors/bower_components/switchery/dist/switchery.min.js"></script>
-	
-	
-	<!-- Fancy Dropdown JS -->
-	<script src="../dist/js/dropdown-bootstrap-extended.js"></script>
-	
-	<!-- Init JavaScript -->
-	<script src="../dist/js/init.js"></script>
 	
 </body>
 

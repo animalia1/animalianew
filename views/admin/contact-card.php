@@ -270,5 +270,7 @@ if (isset($_GET["name"])){
 	} </script>";
 	}
 ?>
+
+<script src="../../dist/js/init.js"></script>
 </body>
 </html>

@@ -135,7 +135,7 @@
 								<li class="product-nicescroll-bar row">
 									<ul class="pa-20">
 										<li class="col-md-3 col-xs-6 col-menu-list">
-											<a href="index.html"><div class="pull-left"><i class="ti-dashboard  mr-20"></i><span class="right-nav-text">Analytical</span></div><div class="clearfix"></div></a>
+											<a href="chart.php"><div class="pull-left"><i class="ti-dashboard  mr-20"></i><span class="right-nav-text">chart</span></div><div class="clearfix"></div></a>
 											<a href="index2.html"><div class="pull-left"><i class="ti-money  mr-20"></i><span class="right-nav-text">Cryptocurrency</span></div><div class="pull-right"><span class="label label-success">Hot</span></div><div class="clearfix"></div></a>
 											<a href="profile.html"><div class="pull-left"><i class="ti-briefcase  mr-20"></i><span class="right-nav-text">Profile</span></div><div class="clearfix"></div></a>
 										</li>
@@ -350,7 +350,7 @@
 						<a class="active" href="javascript:void(0);" data-toggle="collapse" data-target="#dashboard_dr"><div class="pull-left"><i class="ti-dashboard mr-20"></i><span class="right-nav-text">Dashboard</span></div><div class="pull-right"><i class="ti-angle-down"></i></div><div class="clearfix"></div></a>
 						<ul id="dashboard_dr" class="collapse collapse-level-1">
 							<li>
-								<a class="active-page" href="index.html">Analytical</a>
+								<a class="active-page" href="chart.php">chart</a>
 							</li>
 							<li>
 								<a href="index2.html"><div class="pull-left"><span>Cryptocurrency</span></div><div class="pull-right"><span class="label label-success">Hot</span></div><div class="clearfix"></div></a>
@@ -881,7 +881,8 @@
 		<!-- Form Flie Upload Data JavaScript -->
 		<script src="../../dist/js/form-file-upload-data.js"></script>
 	<!-- Init JavaScript -->
-    <script src="../../dist/js/init.js"></script>
+	<script src="../../dist/js/init.js"></script>
+	
     
 	
 </body>
