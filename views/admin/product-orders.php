@@ -590,6 +590,7 @@ include ("../../config.php");
 	<!-- JavaScript -->
 	
 
+	<script src="../../dist/js/init.js"></script>
 	
 </body>
 

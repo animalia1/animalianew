@@ -406,6 +406,17 @@
 						
 						</ul>
 					</li>
+					<li>
+						<a href="javascript:void(0);" data-toggle="collapse" data-target="#product_dr"><div class="pull-left"><i class="fa fa-eye mr-20"></i><span class="right-nav-text">Gestion Avis</span></div><div class="pull-right"><i class="ti-angle-down"></i></div><div class="clearfix"></div></a>
+						<ul id="product_dr" class="collapse collapse-level-1">
+							<li>
+								<a href="commentaire.php">Commentaires</a>
+							</li>
+							<li>
+								<a href="reaction.php">Reactions</a>
+							</li>
+						</ul>
+					</li>
 	<!--ramy jaiem-->
 					
 				</ul>

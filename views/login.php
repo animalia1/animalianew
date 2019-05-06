@@ -9,14 +9,14 @@ if (isset($_REQUEST['username']) and isset($_REQUEST['password'])  and  $_REQUES
     $password=sha1($_REQUEST['password']);
     $client1=new clientC();
     $x=$client1->rechercherClient($nom,$password);
-    if($x)
+    foreach($x as $client)
 
     {
-        foreach($x as $client){
+        
+        if($x){
             $_SESSION['id'] = $client['id'];
             $_SESSION['msg'] = $client['message'];
 
-        }
         $_SESSION['username']= $nom;
         $_SESSION['password']= $_REQUEST['password'];
 
@@ -24,14 +24,10 @@ if (isset($_REQUEST['username']) and isset($_REQUEST['password'])  and  $_REQUES
         header("Location: $url");
 
     }
-
-    else
-
-    {
         echo "check your details";
-    }
+    
 
-}
+}}
 
 
 else{ echo "vérifier les champs"; }

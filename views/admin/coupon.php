@@ -131,6 +131,7 @@ include ('header.php');
 		
 		<!-- JavaScripts -->
 		
+	<script src="../../dist/js/init.js"></script>
 		
                         </body>
                         </html>
